@@ -12,21 +12,22 @@ export function lUMOEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & LUMOEnergyPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & LUMOEnergyPropertySchemaMixin = {
+    const properties: InMemoryEntity<LUMOEnergyPropertySchemaMixin> &
+        LUMOEnergyPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<LUMOEnergyPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: LUMOEnergyPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<LUMOEnergyPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: LUMOEnergyPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get value() {
-            return this.requiredProp<LUMOEnergyPropertySchema["value"]>("value");
+            return this.requiredProp("value");
         },
         set value(value: LUMOEnergyPropertySchema["value"]) {
             this.setProp("value", value);

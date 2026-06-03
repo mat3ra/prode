@@ -12,21 +12,22 @@ export function totalEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & TotalEnergyPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & TotalEnergyPropertySchemaMixin = {
+    const properties: InMemoryEntity<TotalEnergyPropertySchemaMixin> &
+        TotalEnergyPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<TotalEnergyPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: TotalEnergyPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<TotalEnergyPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: TotalEnergyPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get value() {
-            return this.requiredProp<TotalEnergyPropertySchema["value"]>("value");
+            return this.requiredProp("value");
         },
         set value(value: TotalEnergyPropertySchema["value"]) {
             this.setProp("value", value);

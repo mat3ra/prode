@@ -13,21 +13,22 @@ export function ionizationPotentialElementalPropertySchemaMixin<T extends InMemo
     item: InMemoryEntity,
 ): asserts item is T & IonizationPotentialElementalPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & IonizationPotentialElementalPropertySchemaMixin = {
+    const properties: InMemoryEntity<IonizationPotentialElementalPropertySchemaMixin> &
+        IonizationPotentialElementalPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<IonizationPotentialElementalPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: IonizationPotentialElementalPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<IonizationPotentialElementalPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: IonizationPotentialElementalPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get value() {
-            return this.requiredProp<IonizationPotentialElementalPropertySchema["value"]>("value");
+            return this.requiredProp("value");
         },
         set value(value: IonizationPotentialElementalPropertySchema["value"]) {
             this.setProp("value", value);

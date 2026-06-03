@@ -13,21 +13,22 @@ export function zeroPointEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ZeroPointEnergyPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & ZeroPointEnergyPropertySchemaMixin = {
+    const properties: InMemoryEntity<ZeroPointEnergyPropertySchemaMixin> &
+        ZeroPointEnergyPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<ZeroPointEnergyPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: ZeroPointEnergyPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<ZeroPointEnergyPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: ZeroPointEnergyPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get value() {
-            return this.requiredProp<ZeroPointEnergyPropertySchema["value"]>("value");
+            return this.requiredProp("value");
         },
         set value(value: ZeroPointEnergyPropertySchema["value"]) {
             this.setProp("value", value);

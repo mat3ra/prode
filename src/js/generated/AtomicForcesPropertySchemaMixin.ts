@@ -12,21 +12,22 @@ export function atomicForcesPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & AtomicForcesPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & AtomicForcesPropertySchemaMixin = {
+    const properties: InMemoryEntity<AtomicForcesPropertySchemaMixin> &
+        AtomicForcesPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<AtomicForcesPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: AtomicForcesPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get values() {
-            return this.requiredProp<AtomicForcesPropertySchema["values"]>("values");
+            return this.requiredProp("values");
         },
         set values(value: AtomicForcesPropertySchema["values"]) {
             this.setProp("values", value);
         },
         get units() {
-            return this.requiredProp<AtomicForcesPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: AtomicForcesPropertySchema["units"]) {
             this.setProp("units", value);

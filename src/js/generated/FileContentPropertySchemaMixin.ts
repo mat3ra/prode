@@ -12,33 +12,34 @@ export function fileContentPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & FileContentPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & FileContentPropertySchemaMixin = {
+    const properties: InMemoryEntity<FileContentPropertySchemaMixin> &
+        FileContentPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<FileContentPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: FileContentPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get filetype() {
-            return this.requiredProp<FileContentPropertySchema["filetype"]>("filetype");
+            return this.requiredProp("filetype");
         },
         set filetype(value: FileContentPropertySchema["filetype"]) {
             this.setProp("filetype", value);
         },
         get objectData() {
-            return this.requiredProp<FileContentPropertySchema["objectData"]>("objectData");
+            return this.requiredProp("objectData");
         },
         set objectData(value: FileContentPropertySchema["objectData"]) {
             this.setProp("objectData", value);
         },
         get pathname() {
-            return this.prop<FileContentPropertySchema["pathname"]>("pathname");
+            return this.prop("pathname");
         },
         set pathname(value: FileContentPropertySchema["pathname"]) {
             this.setProp("pathname", value);
         },
         get basename() {
-            return this.prop<FileContentPropertySchema["basename"]>("basename");
+            return this.prop("basename");
         },
         set basename(value: FileContentPropertySchema["basename"]) {
             this.setProp("basename", value);

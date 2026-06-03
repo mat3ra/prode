@@ -13,21 +13,22 @@ export function reactionEnergyBarrierPropertySchemaMixin<T extends InMemoryEntit
     item: InMemoryEntity,
 ): asserts item is T & ReactionEnergyBarrierPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & ReactionEnergyBarrierPropertySchemaMixin = {
+    const properties: InMemoryEntity<ReactionEnergyBarrierPropertySchemaMixin> &
+        ReactionEnergyBarrierPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<ReactionEnergyBarrierPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: ReactionEnergyBarrierPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<ReactionEnergyBarrierPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: ReactionEnergyBarrierPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get value() {
-            return this.requiredProp<ReactionEnergyBarrierPropertySchema["value"]>("value");
+            return this.requiredProp("value");
         },
         set value(value: ReactionEnergyBarrierPropertySchema["value"]) {
             this.setProp("value", value);

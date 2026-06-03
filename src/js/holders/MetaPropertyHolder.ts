@@ -9,12 +9,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface MetaPropertyHolder extends MetaPropertyHolderMixin {}
 
-class MetaPropertyHolder extends InMemoryEntity {
-    // eslint-disable-next-line no-useless-constructor
-    constructor(data: MetaPropertyHolderSchema) {
-        super(data);
-    }
-}
+class MetaPropertyHolder extends InMemoryEntity<MetaPropertyHolderSchema> {}
 
 metaPropertyHolderMixin(MetaPropertyHolder.prototype);
 

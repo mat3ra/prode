@@ -22,10 +22,10 @@ export type PropertyHolderMixin = PropertyHolderSchemaMixin & {
 export type PropertyInMemoryEntity = InMemoryEntity & PropertyHolderMixin;
 
 export function propertyHolderMixin(item: InMemoryEntity) {
-    // @ts-expect-error - this is a workaround to allow the propertyMixin to be used with any type of entity
-    const properties: InMemoryEntity & PropertyHolderMixin = {
+    // @ts-expect-error - mixin descriptor object is applied to the entity prototype
+    const properties: InMemoryEntity<PropertyHolderSchema> & PropertyHolderMixin = {
         get sourceInfo() {
-            return this.requiredProp<PropertyHolderSourceSchema["info"]>("source.info");
+            return this.requiredProp("source").info;
         },
 
         get property() {

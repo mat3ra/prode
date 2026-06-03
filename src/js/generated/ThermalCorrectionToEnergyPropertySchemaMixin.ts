@@ -13,21 +13,22 @@ export function thermalCorrectionToEnergyPropertySchemaMixin<T extends InMemoryE
     item: InMemoryEntity,
 ): asserts item is T & ThermalCorrectionToEnergyPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & ThermalCorrectionToEnergyPropertySchemaMixin = {
+    const properties: InMemoryEntity<ThermalCorrectionToEnergyPropertySchemaMixin> &
+        ThermalCorrectionToEnergyPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<ThermalCorrectionToEnergyPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: ThermalCorrectionToEnergyPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<ThermalCorrectionToEnergyPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: ThermalCorrectionToEnergyPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get value() {
-            return this.requiredProp<ThermalCorrectionToEnergyPropertySchema["value"]>("value");
+            return this.requiredProp("value");
         },
         set value(value: ThermalCorrectionToEnergyPropertySchema["value"]) {
             this.setProp("value", value);

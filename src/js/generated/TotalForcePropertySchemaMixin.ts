@@ -12,21 +12,22 @@ export function totalForcePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & TotalForcePropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & TotalForcePropertySchemaMixin = {
+    const properties: InMemoryEntity<TotalForcePropertySchemaMixin> &
+        TotalForcePropertySchemaMixin = {
         get name() {
-            return this.requiredProp<TotalForcesPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: TotalForcesPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<TotalForcesPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: TotalForcesPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get value() {
-            return this.requiredProp<TotalForcesPropertySchema["value"]>("value");
+            return this.requiredProp("value");
         },
         set value(value: TotalForcesPropertySchema["value"]) {
             this.setProp("value", value);

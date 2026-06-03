@@ -13,37 +13,34 @@ export function averagePotentialProfilePropertySchemaMixin<T extends InMemoryEnt
     item: InMemoryEntity,
 ): asserts item is T & AveragePotentialProfilePropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & AveragePotentialProfilePropertySchemaMixin = {
+    const properties: InMemoryEntity<AveragePotentialProfilePropertySchemaMixin> &
+        AveragePotentialProfilePropertySchemaMixin = {
         get xAxis() {
-            return this.requiredProp<AveragePotentialProfilePropertySchema["xAxis"]>("xAxis");
+            return this.requiredProp("xAxis");
         },
         set xAxis(value: AveragePotentialProfilePropertySchema["xAxis"]) {
             this.setProp("xAxis", value);
         },
         get yAxis() {
-            return this.requiredProp<AveragePotentialProfilePropertySchema["yAxis"]>("yAxis");
+            return this.requiredProp("yAxis");
         },
         set yAxis(value: AveragePotentialProfilePropertySchema["yAxis"]) {
             this.setProp("yAxis", value);
         },
         get name() {
-            return this.requiredProp<AveragePotentialProfilePropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: AveragePotentialProfilePropertySchema["name"]) {
             this.setProp("name", value);
         },
         get xDataArray() {
-            return this.requiredProp<AveragePotentialProfilePropertySchema["xDataArray"]>(
-                "xDataArray",
-            );
+            return this.requiredProp("xDataArray");
         },
         set xDataArray(value: AveragePotentialProfilePropertySchema["xDataArray"]) {
             this.setProp("xDataArray", value);
         },
         get yDataSeries() {
-            return this.requiredProp<AveragePotentialProfilePropertySchema["yDataSeries"]>(
-                "yDataSeries",
-            );
+            return this.requiredProp("yDataSeries");
         },
         set yDataSeries(value: AveragePotentialProfilePropertySchema["yDataSeries"]) {
             this.setProp("yDataSeries", value);

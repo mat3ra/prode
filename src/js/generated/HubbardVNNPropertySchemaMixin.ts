@@ -12,21 +12,22 @@ export function hubbardVNNPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & HubbardVNNPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & HubbardVNNPropertySchemaMixin = {
+    const properties: InMemoryEntity<HubbardVNNPropertySchemaMixin> &
+        HubbardVNNPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<HubbardVNNParametersPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: HubbardVNNParametersPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<HubbardVNNParametersPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: HubbardVNNParametersPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get values() {
-            return this.requiredProp<HubbardVNNParametersPropertySchema["values"]>("values");
+            return this.requiredProp("values");
         },
         set values(value: HubbardVNNParametersPropertySchema["values"]) {
             this.setProp("values", value);

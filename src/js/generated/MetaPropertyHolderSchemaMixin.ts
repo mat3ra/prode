@@ -12,15 +12,16 @@ export function metaPropertyHolderSchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & MetaPropertyHolderSchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & MetaPropertyHolderSchemaMixin = {
+    const properties: InMemoryEntity<MetaPropertyHolderSchemaMixin> &
+        MetaPropertyHolderSchemaMixin = {
         get data() {
-            return this.requiredProp<MetaPropertyHolderSchema["data"]>("data");
+            return this.requiredProp("data");
         },
         set data(value: MetaPropertyHolderSchema["data"]) {
             this.setProp("data", value);
         },
         get source() {
-            return this.requiredProp<MetaPropertyHolderSchema["source"]>("source");
+            return this.requiredProp("source");
         },
         set source(value: MetaPropertyHolderSchema["source"]) {
             this.setProp("source", value);

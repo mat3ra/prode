@@ -12,26 +12,27 @@ export function isRelaxedPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & IsRelaxedPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & IsRelaxedPropertySchemaMixin = {
-        get name() {
-            return this.requiredProp<IsRelaxedPropertySchema["name"]>("name");
-        },
-        set name(value: IsRelaxedPropertySchema["name"]) {
-            this.setProp("name", value);
-        },
-        get value() {
-            return this.requiredProp<IsRelaxedPropertySchema["value"]>("value");
-        },
-        set value(value: IsRelaxedPropertySchema["value"]) {
-            this.setProp("value", value);
-        },
-        get materialId() {
-            return this.requiredProp<IsRelaxedPropertySchema["materialId"]>("materialId");
-        },
-        set materialId(value: IsRelaxedPropertySchema["materialId"]) {
-            this.setProp("materialId", value);
-        },
-    };
+    const properties: InMemoryEntity<IsRelaxedPropertySchemaMixin> & IsRelaxedPropertySchemaMixin =
+        {
+            get name() {
+                return this.requiredProp("name");
+            },
+            set name(value: IsRelaxedPropertySchema["name"]) {
+                this.setProp("name", value);
+            },
+            get value() {
+                return this.requiredProp("value");
+            },
+            set value(value: IsRelaxedPropertySchema["value"]) {
+                this.setProp("value", value);
+            },
+            get materialId() {
+                return this.requiredProp("materialId");
+            },
+            set materialId(value: IsRelaxedPropertySchema["materialId"]) {
+                this.setProp("materialId", value);
+            },
+        };
 
     Object.defineProperties(item, Object.getOwnPropertyDescriptors(properties));
 }

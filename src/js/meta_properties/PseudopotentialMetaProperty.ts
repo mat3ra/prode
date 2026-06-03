@@ -1,4 +1,3 @@
-import type { Constructor } from "@mat3ra/code/dist/js/utils/types";
 import type { FileDataItem as Schema } from "@mat3ra/esse/dist/js/types";
 import uniqBy from "lodash/uniqBy";
 
@@ -17,7 +16,8 @@ enum CompatibleExchangeCorrelationKey {
     hse06 = "hse06",
 }
 
-type Base = typeof MetaProperty & Constructor<PseudopotentialMetaPropertySchemaMixin>;
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface PseudopotentialMetaProperty extends PseudopotentialMetaPropertySchemaMixin {}
 
 export type ExchangeCorrelation = {
     functional?: string;
@@ -33,7 +33,7 @@ export type PseudopotentialFilter = {
     elements?: string[];
 };
 
-export default class PseudopotentialMetaProperty extends (MetaProperty as Base) implements Schema {
+class PseudopotentialMetaProperty extends MetaProperty<Schema> implements Schema {
     static readonly propertyName = PropertyName.pseudopotential;
 
     static readonly propertyType = PropertyType.non_scalar;
@@ -42,9 +42,7 @@ export default class PseudopotentialMetaProperty extends (MetaProperty as Base) 
         hse06: ["pbe", "hse06"],
     };
 
-    declare _json: Omit<Schema, "name">;
-
-    declare toJSON: () => Omit<Schema, "name">;
+    readonly name = PropertyName.pseudopotential;
 
     constructor(config: Omit<Schema, "name">) {
         super({ ...config, name: PseudopotentialMetaProperty.propertyName });
@@ -213,3 +211,5 @@ export default class PseudopotentialMetaProperty extends (MetaProperty as Base) 
 }
 
 pseudopotentialMetaPropertySchemaMixin(PseudopotentialMetaProperty.prototype);
+
+export default PseudopotentialMetaProperty;

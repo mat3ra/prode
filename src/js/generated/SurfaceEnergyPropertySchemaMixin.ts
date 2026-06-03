@@ -12,21 +12,22 @@ export function surfaceEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & SurfaceEnergyPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & SurfaceEnergyPropertySchemaMixin = {
+    const properties: InMemoryEntity<SurfaceEnergyPropertySchemaMixin> &
+        SurfaceEnergyPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<SurfaceEnergyPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: SurfaceEnergyPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<SurfaceEnergyPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: SurfaceEnergyPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get value() {
-            return this.requiredProp<SurfaceEnergyPropertySchema["value"]>("value");
+            return this.requiredProp("value");
         },
         set value(value: SurfaceEnergyPropertySchema["value"]) {
             this.setProp("value", value);

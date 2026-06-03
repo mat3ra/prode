@@ -12,21 +12,21 @@ export function hubbardUPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & HubbardUPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & HubbardUPropertySchemaMixin = {
+    const properties: InMemoryEntity<HubbardUPropertySchemaMixin> & HubbardUPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<HubbardUParametersPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: HubbardUParametersPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<HubbardUParametersPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: HubbardUParametersPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get values() {
-            return this.requiredProp<HubbardUParametersPropertySchema["values"]>("values");
+            return this.requiredProp("values");
         },
         set values(value: HubbardUParametersPropertySchema["values"]) {
             this.setProp("values", value);

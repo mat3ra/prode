@@ -12,15 +12,16 @@ export function protoPropertyHolderSchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ProtoPropertyHolderSchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & ProtoPropertyHolderSchemaMixin = {
+    const properties: InMemoryEntity<ProtoPropertyHolderSchemaMixin> &
+        ProtoPropertyHolderSchemaMixin = {
         get data() {
-            return this.requiredProp<ProtoPropertyHolderSchema["data"]>("data");
+            return this.requiredProp("data");
         },
         set data(value: ProtoPropertyHolderSchema["data"]) {
             this.setProp("data", value);
         },
         get source() {
-            return this.requiredProp<ProtoPropertyHolderSchema["source"]>("source");
+            return this.requiredProp("source");
         },
         set source(value: ProtoPropertyHolderSchema["source"]) {
             this.setProp("source", value);

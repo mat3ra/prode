@@ -12,21 +12,21 @@ export function pressurePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & PressurePropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & PressurePropertySchemaMixin = {
+    const properties: InMemoryEntity<PressurePropertySchemaMixin> & PressurePropertySchemaMixin = {
         get name() {
-            return this.requiredProp<PressurePropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: PressurePropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.requiredProp<PressurePropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: PressurePropertySchema["units"]) {
             this.setProp("units", value);
         },
         get value() {
-            return this.requiredProp<PressurePropertySchema["value"]>("value");
+            return this.requiredProp("value");
         },
         set value(value: PressurePropertySchema["value"]) {
             this.setProp("value", value);

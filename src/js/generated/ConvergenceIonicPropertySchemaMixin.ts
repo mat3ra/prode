@@ -13,27 +13,28 @@ export function convergenceIonicPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ConvergenceIonicPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & ConvergenceIonicPropertySchemaMixin = {
+    const properties: InMemoryEntity<ConvergenceIonicPropertySchemaMixin> &
+        ConvergenceIonicPropertySchemaMixin = {
         get name() {
-            return this.requiredProp<ConvergenceIonicPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: ConvergenceIonicPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get tolerance() {
-            return this.prop<ConvergenceIonicPropertySchema["tolerance"]>("tolerance");
+            return this.prop("tolerance");
         },
         set tolerance(value: ConvergenceIonicPropertySchema["tolerance"]) {
             this.setProp("tolerance", value);
         },
         get units() {
-            return this.requiredProp<ConvergenceIonicPropertySchema["units"]>("units");
+            return this.requiredProp("units");
         },
         set units(value: ConvergenceIonicPropertySchema["units"]) {
             this.setProp("units", value);
         },
         get data() {
-            return this.requiredProp<ConvergenceIonicPropertySchema["data"]>("data");
+            return this.requiredProp("data");
         },
         set data(value: ConvergenceIonicPropertySchema["data"]) {
             this.setProp("data", value);
