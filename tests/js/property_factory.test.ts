@@ -17,6 +17,7 @@ describe("PropertyFactory", () => {
         const multipleResultsPropertyNames = PropertyFactory.getMultipleResultsPropertyNames();
         const scalarPropertyNames = PropertyFactory.getScalarPropertyNames();
         const nonScalarPropertyNames = PropertyFactory.getNonScalarPropertyNames();
+        const arrayOfObjectsPropertyNames = PropertyFactory.getArrayOfObjectsPropertyNames();
 
         // Verify all methods return arrays
         expect(refinedPropertyNames).to.be.an("array");
@@ -24,6 +25,7 @@ describe("PropertyFactory", () => {
         expect(multipleResultsPropertyNames).to.be.an("array");
         expect(scalarPropertyNames).to.be.an("array");
         expect(nonScalarPropertyNames).to.be.an("array");
+        expect(arrayOfObjectsPropertyNames).to.be.an("array");
 
         // Verify arrays are not empty
         expect(refinedPropertyNames.length).to.be.greaterThan(0);
@@ -31,6 +33,7 @@ describe("PropertyFactory", () => {
         expect(multipleResultsPropertyNames.length).to.be.greaterThan(0);
         expect(scalarPropertyNames.length).to.be.greaterThan(0);
         expect(nonScalarPropertyNames.length).to.be.greaterThan(0);
+        expect(arrayOfObjectsPropertyNames.length).to.be.greaterThan(0);
 
         // Verify all returned values are valid PropertyName enum values
         const allPropertyNames = [
@@ -39,6 +42,7 @@ describe("PropertyFactory", () => {
             ...multipleResultsPropertyNames,
             ...scalarPropertyNames,
             ...nonScalarPropertyNames,
+            ...arrayOfObjectsPropertyNames,
         ];
 
         expect([
@@ -59,6 +63,7 @@ describe("PropertyFactory", () => {
         const multipleResultsPropertyNames = PropertyFactory.getMultipleResultsPropertyNames();
         const scalarPropertyNames = PropertyFactory.getScalarPropertyNames();
         const nonScalarPropertyNames = PropertyFactory.getNonScalarPropertyNames();
+        const arrayOfObjectsPropertyNames = PropertyFactory.getArrayOfObjectsPropertyNames();
 
         // Test specific known properties are in correct categories
         expect(refinedPropertyNames).to.include(PropertyName.total_energy);
@@ -85,6 +90,8 @@ describe("PropertyFactory", () => {
         expect(nonScalarPropertyNames).to.include(PropertyName.band_structure);
         expect(nonScalarPropertyNames).to.include(PropertyName.density_of_states);
         expect(nonScalarPropertyNames).to.include(PropertyName.file_content);
+
+        expect(arrayOfObjectsPropertyNames).to.include(PropertyName.formation_energy_contributions);
     });
 
     it("should not have overlapping categories", () => {
@@ -93,6 +100,7 @@ describe("PropertyFactory", () => {
         const multipleResultsPropertyNames = PropertyFactory.getMultipleResultsPropertyNames();
         const scalarPropertyNames = PropertyFactory.getScalarPropertyNames();
         const nonScalarPropertyNames = PropertyFactory.getNonScalarPropertyNames();
+        const arrayOfObjectsPropertyNames = PropertyFactory.getArrayOfObjectsPropertyNames();
 
         // Verify scalar and non-scalar properties don't overlap
         const scalarNonScalarOverlap = scalarPropertyNames.filter((name) =>
@@ -111,5 +119,10 @@ describe("PropertyFactory", () => {
             scalarPropertyNames.includes(name),
         );
         expect(multipleResultsScalarOverlap).to.have.length(0);
+
+        const scalarArrayOfObjectsOverlap = scalarPropertyNames.filter((name) =>
+            arrayOfObjectsPropertyNames.includes(name),
+        );
+        expect(scalarArrayOfObjectsOverlap).to.have.length(0);
     });
 });
