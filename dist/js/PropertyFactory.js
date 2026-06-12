@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const PseudopotentialMetaProperty_1 = __importDefault(require("./meta_properties/PseudopotentialMetaProperty"));
+const FormationEnergyContributionsProperty_1 = __importDefault(require("./properties/array-of-objects/FormationEnergyContributionsProperty"));
 const AveragePotentialProfileProperty_1 = __importDefault(require("./properties/non-scalar/AveragePotentialProfileProperty"));
 const BandGapsProperty_1 = __importDefault(require("./properties/non-scalar/BandGapsProperty"));
 const BandStructureProperty_1 = __importDefault(require("./properties/non-scalar/BandStructureProperty"));
@@ -61,6 +62,7 @@ const PROPERTY_CLASS_MAP = {
     [ThermalCorrectionToEnthalpyProperty_1.default.propertyName]: ThermalCorrectionToEnthalpyProperty_1.default,
     [ZeroPointEnergyProperty_1.default.propertyName]: ZeroPointEnergyProperty_1.default,
     [TotalEnergyContributionsProperty_1.default.propertyName]: TotalEnergyContributionsProperty_1.default,
+    [FormationEnergyContributionsProperty_1.default.propertyName]: FormationEnergyContributionsProperty_1.default,
     [AtomicForcesProperty_1.default.propertyName]: AtomicForcesProperty_1.default,
     [StressTensorProperty_1.default.propertyName]: StressTensorProperty_1.default,
     [DensityOfStatesProperty_1.default.propertyName]: DensityOfStatesProperty_1.default,
@@ -118,6 +120,11 @@ class PropertyFactory {
     static getNonScalarPropertyNames() {
         return this.filterPropertyNames((PropertyClass) => {
             return PropertyClass.propertyType === settings_1.PropertyType.non_scalar;
+        });
+    }
+    static getArrayOfObjectsPropertyNames() {
+        return this.filterPropertyNames((PropertyClass) => {
+            return (PropertyClass.propertyType === settings_1.PropertyType.array_of_objects);
         });
     }
     static filterPropertyNames(filterFn) {

@@ -7,6 +7,7 @@ import type {
 
 import PseudopotentialProperty from "./meta_properties/PseudopotentialMetaProperty";
 import type MetaProperty from "./MetaProperty";
+import FormationEnergyContributionsProperty from "./properties/array-of-objects/FormationEnergyContributionsProperty";
 import AveragePotentialProfileProperty from "./properties/non-scalar/AveragePotentialProfileProperty";
 import BandGapsProperty from "./properties/non-scalar/BandGapsProperty";
 import BandStructureProperty from "./properties/non-scalar/BandStructureProperty";
@@ -71,6 +72,7 @@ type PropertyClassMap = {
         | Constructor<ThermalCorrectionToEnthalpyProperty>
         | Constructor<ZeroPointEnergyProperty>
         | Constructor<TotalEnergyContributionsProperty>
+        | Constructor<FormationEnergyContributionsProperty>
         | Constructor<AtomicForcesProperty>
         | Constructor<StressTensorProperty>
         | Constructor<DensityOfStatesProperty>
@@ -123,6 +125,7 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
     [ThermalCorrectionToEnthalpyProperty.propertyName]: ThermalCorrectionToEnthalpyProperty,
     [ZeroPointEnergyProperty.propertyName]: ZeroPointEnergyProperty,
     [TotalEnergyContributionsProperty.propertyName]: TotalEnergyContributionsProperty,
+    [FormationEnergyContributionsProperty.propertyName]: FormationEnergyContributionsProperty,
     [AtomicForcesProperty.propertyName]: AtomicForcesProperty,
     [StressTensorProperty.propertyName]: StressTensorProperty,
     [DensityOfStatesProperty.propertyName]: DensityOfStatesProperty,
@@ -189,6 +192,14 @@ export default class PropertyFactory {
     static getNonScalarPropertyNames(): PropertyName[] {
         return this.filterPropertyNames((PropertyClass) => {
             return (PropertyClass as typeof Property).propertyType === PropertyType.non_scalar;
+        });
+    }
+
+    static getArrayOfObjectsPropertyNames(): PropertyName[] {
+        return this.filterPropertyNames((PropertyClass) => {
+            return (
+                (PropertyClass as typeof Property).propertyType === PropertyType.array_of_objects
+            );
         });
     }
 

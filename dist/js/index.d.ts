@@ -3,6 +3,7 @@ export { PropertyName, PropertyType } from "./settings";
 export { default as Property } from "./Property";
 export { default as MetaProperty } from "./MetaProperty";
 export { default as PseudopotentialMetaProperty } from "./meta_properties/PseudopotentialMetaProperty";
+export { default as FormationEnergyContributionsProperty } from "./properties/array-of-objects/FormationEnergyContributionsProperty";
 export { default as FinalStructureProperty } from "./properties/non-scalar/FinalStructureProperty";
 export { default as BandGapsProperty } from "./properties/non-scalar/BandGapsProperty";
 export { default as IsRelaxedProperty } from "./properties/non-scalar/IsRelaxedProperty";

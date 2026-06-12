@@ -10,6 +10,7 @@ export enum PropertyType {
     // non-scalar subtypes
     tensor = "tensor",
     object = "object",
+    array_of_objects = "array-of-objects",
 }
 
 export enum PropertyName {
@@ -27,6 +28,7 @@ export enum PropertyName {
     thermal_correction_to_energy = "thermal_correction_to_energy",
     thermal_correction_to_enthalpy = "thermal_correction_to_enthalpy",
     total_energy_contributions = "total_energy_contributions",
+    formation_energy_contributions = "formation_energy_contributions",
     atomic_forces = "atomic_forces",
     atomic_constraints = "atomic_constraints",
     stress_tensor = "stress_tensor",
