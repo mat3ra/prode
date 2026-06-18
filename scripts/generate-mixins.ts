@@ -66,6 +66,8 @@ const OUTPUT_PATHS = {
     "properties-directory/non-scalar/workflow": "src/js/generated/WorkflowPropertySchemaMixin.ts",
     "properties-directory/non-scalar/total-energy-contributions":
         "src/js/generated/TotalEnergyContributionsPropertySchemaMixin.ts",
+    "properties-directory/non-scalar/formation-energy-contributions":
+        "src/js/generated/FormationEnergyContributionsPropertySchemaMixin.ts",
     "properties-directory/scalar/fermi-energy":
         "src/js/generated/FermiEnergyPropertySchemaMixin.ts",
     "properties-directory/scalar/homo-energy": "src/js/generated/HOMOEnergyPropertySchemaMixin.ts",
@@ -75,6 +77,8 @@ const OUTPUT_PATHS = {
     "properties-directory/scalar/pressure": "src/js/generated/PressurePropertySchemaMixin.ts",
     "properties-directory/scalar/reaction-energy-barrier":
         "src/js/generated/ReactionEnergyBarrierPropertySchemaMixin.ts",
+    "properties-directory/scalar/formation-energy":
+        "src/js/generated/FormationEnergyPropertySchemaMixin.ts",
     "properties-directory/scalar/surface-energy":
         "src/js/generated/SurfaceEnergyPropertySchemaMixin.ts",
     "properties-directory/scalar/thermal-correction-to-energy":
@@ -98,8 +102,6 @@ const OUTPUT_PATHS = {
         "src/js/generated/AtomicConstraintsPropertySchemaMixin.ts",
     "properties-directory/structural/basis/boundary-conditions":
         "src/js/generated/BoundaryConditionsPropertySchemaMixin.ts",
-    "properties-directory/non-scalar/wavefunction-amplitude":
-        "src/js/generated/WavefunctionAmplitudePropertySchemaMixin.ts",
 };
 
 function main() {

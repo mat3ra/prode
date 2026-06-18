@@ -14,6 +14,7 @@ var PropertyType;
     // non-scalar subtypes
     PropertyType["tensor"] = "tensor";
     PropertyType["object"] = "object";
+    PropertyType["array_of_objects"] = "array-of-objects";
 })(PropertyType || (exports.PropertyType = PropertyType = {}));
 var PropertyName;
 (function (PropertyName) {
@@ -23,6 +24,7 @@ var PropertyName;
     PropertyName["homo_energy"] = "homo_energy";
     PropertyName["lumo_energy"] = "lumo_energy";
     PropertyName["surface_energy"] = "surface_energy";
+    PropertyName["formation_energy"] = "formation_energy";
     PropertyName["convergence_electronic"] = "convergence_electronic";
     PropertyName["convergence_ionic"] = "convergence_ionic";
     PropertyName["fermi_energy"] = "fermi_energy";
@@ -30,6 +32,7 @@ var PropertyName;
     PropertyName["thermal_correction_to_energy"] = "thermal_correction_to_energy";
     PropertyName["thermal_correction_to_enthalpy"] = "thermal_correction_to_enthalpy";
     PropertyName["total_energy_contributions"] = "total_energy_contributions";
+    PropertyName["formation_energy_contributions"] = "formation_energy_contributions";
     PropertyName["atomic_forces"] = "atomic_forces";
     PropertyName["atomic_constraints"] = "atomic_constraints";
     PropertyName["stress_tensor"] = "stress_tensor";

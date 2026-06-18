@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const PseudopotentialMetaProperty_1 = __importDefault(require("./meta_properties/PseudopotentialMetaProperty"));
+const FormationEnergyContributionsProperty_1 = __importDefault(require("./properties/array-of-objects/FormationEnergyContributionsProperty"));
 const AveragePotentialProfileProperty_1 = __importDefault(require("./properties/non-scalar/AveragePotentialProfileProperty"));
 const BandGapsProperty_1 = __importDefault(require("./properties/non-scalar/BandGapsProperty"));
 const BandStructureProperty_1 = __importDefault(require("./properties/non-scalar/BandStructureProperty"));
@@ -27,6 +28,7 @@ const WavefunctionAmplitudeProperty_1 = __importDefault(require("./properties/no
 const WorkflowProperty_1 = __importDefault(require("./properties/non-scalar/WorkflowProperty"));
 const TotalEnergyContributionsProperty_1 = __importDefault(require("./properties/object/TotalEnergyContributionsProperty"));
 const FermiEnergyProperty_1 = __importDefault(require("./properties/scalar/FermiEnergyProperty"));
+const FormationEnergyProperty_1 = __importDefault(require("./properties/scalar/FormationEnergyProperty"));
 const HOMOEnergyProperty_1 = __importDefault(require("./properties/scalar/HOMOEnergyProperty"));
 const IonizationPotentialElementalProperty_1 = __importDefault(require("./properties/scalar/IonizationPotentialElementalProperty"));
 const LUMOEnergyProperty_1 = __importDefault(require("./properties/scalar/LUMOEnergyProperty"));
@@ -51,6 +53,7 @@ const PROPERTY_CLASS_MAP = {
     [TotalEnergyProperty_1.default.propertyName]: TotalEnergyProperty_1.default,
     [HOMOEnergyProperty_1.default.propertyName]: HOMOEnergyProperty_1.default,
     [LUMOEnergyProperty_1.default.propertyName]: LUMOEnergyProperty_1.default,
+    [FormationEnergyProperty_1.default.propertyName]: FormationEnergyProperty_1.default,
     [SurfaceEnergyProperty_1.default.propertyName]: SurfaceEnergyProperty_1.default,
     [ConvergenceElectronicProperty_1.default.propertyName]: ConvergenceElectronicProperty_1.default,
     [ConvergenceIonicProperty_1.default.propertyName]: ConvergenceIonicProperty_1.default,
@@ -59,6 +62,7 @@ const PROPERTY_CLASS_MAP = {
     [ThermalCorrectionToEnthalpyProperty_1.default.propertyName]: ThermalCorrectionToEnthalpyProperty_1.default,
     [ZeroPointEnergyProperty_1.default.propertyName]: ZeroPointEnergyProperty_1.default,
     [TotalEnergyContributionsProperty_1.default.propertyName]: TotalEnergyContributionsProperty_1.default,
+    [FormationEnergyContributionsProperty_1.default.propertyName]: FormationEnergyContributionsProperty_1.default,
     [AtomicForcesProperty_1.default.propertyName]: AtomicForcesProperty_1.default,
     [StressTensorProperty_1.default.propertyName]: StressTensorProperty_1.default,
     [DensityOfStatesProperty_1.default.propertyName]: DensityOfStatesProperty_1.default,
@@ -116,6 +120,11 @@ class PropertyFactory {
     static getNonScalarPropertyNames() {
         return this.filterPropertyNames((PropertyClass) => {
             return PropertyClass.propertyType === settings_1.PropertyType.non_scalar;
+        });
+    }
+    static getArrayOfObjectsPropertyNames() {
+        return this.filterPropertyNames((PropertyClass) => {
+            return (PropertyClass.propertyType === settings_1.PropertyType.array_of_objects);
         });
     }
     static filterPropertyNames(filterFn) {
