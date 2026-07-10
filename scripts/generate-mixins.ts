@@ -81,6 +81,8 @@ const OUTPUT_PATHS = {
         "src/js/generated/FormationEnergyPropertySchemaMixin.ts",
     "properties-directory/scalar/surface-energy":
         "src/js/generated/SurfaceEnergyPropertySchemaMixin.ts",
+    "properties-directory/scalar/interfacial-energy":
+        "src/js/generated/InterfacialEnergyPropertySchemaMixin.ts",
     "properties-directory/scalar/thermal-correction-to-energy":
         "src/js/generated/ThermalCorrectionToEnergyPropertySchemaMixin.ts",
     "properties-directory/scalar/thermal-correction-to-enthalpy":
