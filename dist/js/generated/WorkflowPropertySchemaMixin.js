@@ -16,6 +16,12 @@ function workflowPropertySchemaMixin(item) {
         set workflows(value) {
             this.setProp("workflows", value);
         },
+        get compute() {
+            return this.prop("compute");
+        },
+        set compute(value) {
+            this.setProp("compute", value);
+        },
         get metadata() {
             return this.prop("metadata");
         },
@@ -63,6 +69,18 @@ function workflowPropertySchemaMixin(item) {
         },
         set tags(value) {
             this.setProp("tags", value);
+        },
+        get description() {
+            return this.prop("description");
+        },
+        set description(value) {
+            this.setProp("description", value);
+        },
+        get descriptionObject() {
+            return this.prop("descriptionObject");
+        },
+        set descriptionObject(value) {
+            this.setProp("descriptionObject", value);
         },
     };
     Object.defineProperties(item, Object.getOwnPropertyDescriptors(properties));

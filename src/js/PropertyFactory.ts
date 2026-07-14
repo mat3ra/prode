@@ -33,6 +33,7 @@ import TotalEnergyContributionsProperty from "./properties/object/TotalEnergyCon
 import FermiEnergyProperty from "./properties/scalar/FermiEnergyProperty";
 import FormationEnergyProperty from "./properties/scalar/FormationEnergyProperty";
 import HOMOEnergyProperty from "./properties/scalar/HOMOEnergyProperty";
+import InterfacialEnergyProperty from "./properties/scalar/InterfacialEnergyProperty";
 import IonizationPotentialElementalProperty from "./properties/scalar/IonizationPotentialElementalProperty";
 import LUMOEnergyProperty from "./properties/scalar/LUMOEnergyProperty";
 import PressureProperty from "./properties/scalar/PressureProperty";
@@ -65,6 +66,7 @@ type PropertyClassMap = {
         | Constructor<LUMOEnergyProperty>
         | Constructor<FormationEnergyProperty>
         | Constructor<SurfaceEnergyProperty>
+        | Constructor<InterfacialEnergyProperty>
         | Constructor<ConvergenceElectronicProperty>
         | Constructor<ConvergenceIonicProperty>
         | Constructor<FermiEnergyProperty>
@@ -118,6 +120,7 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
     [LUMOEnergyProperty.propertyName]: LUMOEnergyProperty,
     [FormationEnergyProperty.propertyName]: FormationEnergyProperty,
     [SurfaceEnergyProperty.propertyName]: SurfaceEnergyProperty,
+    [InterfacialEnergyProperty.propertyName]: InterfacialEnergyProperty,
     [ConvergenceElectronicProperty.propertyName]: ConvergenceElectronicProperty,
     [ConvergenceIonicProperty.propertyName]: ConvergenceIonicProperty,
     [FermiEnergyProperty.propertyName]: FermiEnergyProperty,

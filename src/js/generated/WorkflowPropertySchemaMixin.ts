@@ -25,6 +25,12 @@ export function workflowPropertySchemaMixin<T extends InMemoryEntity>(
         set workflows(value: WorkflowPropertySchema["workflows"]) {
             this.setProp("workflows", value);
         },
+        get compute() {
+            return this.prop<WorkflowPropertySchema["compute"]>("compute");
+        },
+        set compute(value: WorkflowPropertySchema["compute"]) {
+            this.setProp("compute", value);
+        },
         get metadata() {
             return this.prop<WorkflowPropertySchema["metadata"]>("metadata");
         },
@@ -72,6 +78,18 @@ export function workflowPropertySchemaMixin<T extends InMemoryEntity>(
         },
         set tags(value: WorkflowPropertySchema["tags"]) {
             this.setProp("tags", value);
+        },
+        get description() {
+            return this.prop<WorkflowPropertySchema["description"]>("description");
+        },
+        set description(value: WorkflowPropertySchema["description"]) {
+            this.setProp("description", value);
+        },
+        get descriptionObject() {
+            return this.prop<WorkflowPropertySchema["descriptionObject"]>("descriptionObject");
+        },
+        set descriptionObject(value: WorkflowPropertySchema["descriptionObject"]) {
+            this.setProp("descriptionObject", value);
         },
     };
 
