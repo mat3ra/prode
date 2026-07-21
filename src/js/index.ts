@@ -12,6 +12,7 @@ export { default as ReactionEnergyBarrierProperty } from "./properties/scalar/Re
 export { default as FormationEnergyProperty } from "./properties/scalar/FormationEnergyProperty";
 export { default as SurfaceEnergyProperty } from "./properties/scalar/SurfaceEnergyProperty";
 export { default as InterfacialEnergyProperty } from "./properties/scalar/InterfacialEnergyProperty";
+export { default as DefectFormationEnergyProperty } from "./properties/scalar/DefectFormationEnergyProperty";
 export { default as TotalEnergyProperty } from "./properties/scalar/TotalEnergyProperty";
 export { default as HOMOEnergyProperty } from "./properties/scalar/HOMOEnergyProperty";
 export { default as LUMOEnergyProperty } from "./properties/scalar/LUMOEnergyProperty";
