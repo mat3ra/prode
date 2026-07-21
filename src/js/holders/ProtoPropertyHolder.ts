@@ -6,10 +6,12 @@ import {
     protoPropertyHolderMixin,
 } from "./mixins/ProtoPropertyHolderMixin";
 
+type Schema = ProtoPropertyHolderSchema;
+
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface ProtoPropertyHolder extends ProtoPropertyHolderMixin {}
 
-class ProtoPropertyHolder extends InMemoryEntity<ProtoPropertyHolderSchema> {}
+class ProtoPropertyHolder<S extends Schema = Schema> extends InMemoryEntity<S> implements Schema {}
 
 protoPropertyHolderMixin(ProtoPropertyHolder.prototype);
 

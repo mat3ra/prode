@@ -6,10 +6,12 @@ import {
     metaPropertyHolderMixin,
 } from "./mixins/MetaPropertyHolderMixin";
 
+type Schema = MetaPropertyHolderSchema;
+
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface MetaPropertyHolder extends MetaPropertyHolderMixin {}
 
-class MetaPropertyHolder extends InMemoryEntity<MetaPropertyHolderSchema> {}
+class MetaPropertyHolder<S extends Schema = Schema> extends InMemoryEntity<S> implements Schema {}
 
 metaPropertyHolderMixin(MetaPropertyHolder.prototype);
 
