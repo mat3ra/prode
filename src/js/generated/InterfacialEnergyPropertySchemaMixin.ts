@@ -6,9 +6,6 @@ export type InterfacialEnergyPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type InterfacialEnergyPropertyInMemoryEntity = InMemoryEntity &
-    InterfacialEnergyPropertySchemaMixin;
-
 export function interfacialEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & InterfacialEnergyPropertySchemaMixin {

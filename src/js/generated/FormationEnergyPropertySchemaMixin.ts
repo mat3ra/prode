@@ -6,9 +6,6 @@ export type FormationEnergyPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type FormationEnergyPropertyInMemoryEntity = InMemoryEntity &
-    FormationEnergyPropertySchemaMixin;
-
 export function formationEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & FormationEnergyPropertySchemaMixin {

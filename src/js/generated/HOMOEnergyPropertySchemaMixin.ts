@@ -6,8 +6,6 @@ export type HOMOEnergyPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type HOMOEnergyPropertyInMemoryEntity = InMemoryEntity & HOMOEnergyPropertySchemaMixin;
-
 export function hOMOEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & HOMOEnergyPropertySchemaMixin {

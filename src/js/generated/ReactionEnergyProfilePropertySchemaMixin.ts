@@ -6,9 +6,6 @@ export type ReactionEnergyProfilePropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ReactionEnergyProfilePropertyInMemoryEntity = InMemoryEntity &
-    ReactionEnergyProfilePropertySchemaMixin;
-
 export function reactionEnergyProfilePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ReactionEnergyProfilePropertySchemaMixin {

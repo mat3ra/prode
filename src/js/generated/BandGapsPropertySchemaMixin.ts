@@ -6,8 +6,6 @@ export type BandGapsPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type BandGapsPropertyInMemoryEntity = InMemoryEntity & BandGapsPropertySchemaMixin;
-
 export function bandGapsPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & BandGapsPropertySchemaMixin {

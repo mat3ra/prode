@@ -6,8 +6,6 @@ export type HubbardUPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type HubbardUPropertyInMemoryEntity = InMemoryEntity & HubbardUPropertySchemaMixin;
-
 export function hubbardUPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & HubbardUPropertySchemaMixin {

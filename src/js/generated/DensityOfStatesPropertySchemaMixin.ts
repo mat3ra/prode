@@ -6,9 +6,6 @@ export type DensityOfStatesPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type DensityOfStatesPropertyInMemoryEntity = InMemoryEntity &
-    DensityOfStatesPropertySchemaMixin;
-
 export function densityOfStatesPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & DensityOfStatesPropertySchemaMixin {

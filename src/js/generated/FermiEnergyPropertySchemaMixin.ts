@@ -6,8 +6,6 @@ export type FermiEnergyPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type FermiEnergyPropertyInMemoryEntity = InMemoryEntity & FermiEnergyPropertySchemaMixin;
-
 export function fermiEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & FermiEnergyPropertySchemaMixin {

@@ -6,8 +6,6 @@ export type PhononDOSPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type PhononDOSPropertyInMemoryEntity = InMemoryEntity & PhononDOSPropertySchemaMixin;
-
 export function phononDOSPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & PhononDOSPropertySchemaMixin {

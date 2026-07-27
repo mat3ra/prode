@@ -6,9 +6,6 @@ export type ValenceBandOffsetPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ValenceBandOffsetPropertyInMemoryEntity = InMemoryEntity &
-    ValenceBandOffsetPropertySchemaMixin;
-
 export function valenceBandOffsetPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ValenceBandOffsetPropertySchemaMixin {

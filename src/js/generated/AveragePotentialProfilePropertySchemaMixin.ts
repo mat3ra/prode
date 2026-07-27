@@ -6,9 +6,6 @@ export type AveragePotentialProfilePropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type AveragePotentialProfilePropertyInMemoryEntity = InMemoryEntity &
-    AveragePotentialProfilePropertySchemaMixin;
-
 export function averagePotentialProfilePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & AveragePotentialProfilePropertySchemaMixin {

@@ -6,8 +6,6 @@ export type StressTensorPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type StressTensorPropertyInMemoryEntity = InMemoryEntity & StressTensorPropertySchemaMixin;
-
 export function stressTensorPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & StressTensorPropertySchemaMixin {

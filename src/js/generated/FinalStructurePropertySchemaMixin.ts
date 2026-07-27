@@ -6,9 +6,6 @@ export type FinalStructurePropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type FinalStructurePropertyInMemoryEntity = InMemoryEntity &
-    FinalStructurePropertySchemaMixin;
-
 export function finalStructurePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & FinalStructurePropertySchemaMixin {

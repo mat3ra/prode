@@ -6,8 +6,6 @@ export type SurfaceEnergyPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type SurfaceEnergyPropertyInMemoryEntity = InMemoryEntity & SurfaceEnergyPropertySchemaMixin;
-
 export function surfaceEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & SurfaceEnergyPropertySchemaMixin {

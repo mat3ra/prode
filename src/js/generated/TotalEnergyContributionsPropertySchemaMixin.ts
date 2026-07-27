@@ -6,9 +6,6 @@ export type TotalEnergyContributionsPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type TotalEnergyContributionsPropertyInMemoryEntity = InMemoryEntity &
-    TotalEnergyContributionsPropertySchemaMixin;
-
 export function totalEnergyContributionsPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & TotalEnergyContributionsPropertySchemaMixin {

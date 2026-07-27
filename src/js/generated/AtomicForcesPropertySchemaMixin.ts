@@ -6,8 +6,6 @@ export type AtomicForcesPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type AtomicForcesPropertyInMemoryEntity = InMemoryEntity & AtomicForcesPropertySchemaMixin;
-
 export function atomicForcesPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & AtomicForcesPropertySchemaMixin {

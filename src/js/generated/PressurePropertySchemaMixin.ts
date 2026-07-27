@@ -6,8 +6,6 @@ export type PressurePropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type PressurePropertyInMemoryEntity = InMemoryEntity & PressurePropertySchemaMixin;
-
 export function pressurePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & PressurePropertySchemaMixin {

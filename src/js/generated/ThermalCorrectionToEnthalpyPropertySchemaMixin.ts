@@ -6,9 +6,6 @@ export type ThermalCorrectionToEnthalpyPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ThermalCorrectionToEnthalpyPropertyInMemoryEntity = InMemoryEntity &
-    ThermalCorrectionToEnthalpyPropertySchemaMixin;
-
 export function thermalCorrectionToEnthalpyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ThermalCorrectionToEnthalpyPropertySchemaMixin {

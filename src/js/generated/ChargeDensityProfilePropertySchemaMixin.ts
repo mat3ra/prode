@@ -6,9 +6,6 @@ export type ChargeDensityProfilePropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ChargeDensityProfilePropertyInMemoryEntity = InMemoryEntity &
-    ChargeDensityProfilePropertySchemaMixin;
-
 export function chargeDensityProfilePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ChargeDensityProfilePropertySchemaMixin {

@@ -6,9 +6,6 @@ export type BoundaryConditionsPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type BoundaryConditionsPropertyInMemoryEntity = InMemoryEntity &
-    BoundaryConditionsPropertySchemaMixin;
-
 export function boundaryConditionsPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & BoundaryConditionsPropertySchemaMixin {

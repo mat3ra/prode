@@ -6,9 +6,6 @@ export type PhononDispersionsPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type PhononDispersionsPropertyInMemoryEntity = InMemoryEntity &
-    PhononDispersionsPropertySchemaMixin;
-
 export function phononDispersionsPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & PhononDispersionsPropertySchemaMixin {

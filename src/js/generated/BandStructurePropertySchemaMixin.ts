@@ -6,8 +6,6 @@ export type BandStructurePropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type BandStructurePropertyInMemoryEntity = InMemoryEntity & BandStructurePropertySchemaMixin;
-
 export function bandStructurePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & BandStructurePropertySchemaMixin {

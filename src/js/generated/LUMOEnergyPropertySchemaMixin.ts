@@ -6,8 +6,6 @@ export type LUMOEnergyPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type LUMOEnergyPropertyInMemoryEntity = InMemoryEntity & LUMOEnergyPropertySchemaMixin;
-
 export function lUMOEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & LUMOEnergyPropertySchemaMixin {

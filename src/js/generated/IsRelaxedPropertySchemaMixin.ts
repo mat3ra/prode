@@ -6,8 +6,6 @@ export type IsRelaxedPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type IsRelaxedPropertyInMemoryEntity = InMemoryEntity & IsRelaxedPropertySchemaMixin;
-
 export function isRelaxedPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & IsRelaxedPropertySchemaMixin {

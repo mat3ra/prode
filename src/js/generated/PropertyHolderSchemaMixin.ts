@@ -6,8 +6,6 @@ export type PropertyHolderSchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type PropertyHolderInMemoryEntity = InMemoryEntity & PropertyHolderSchemaMixin;
-
 export function propertyHolderSchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & PropertyHolderSchemaMixin {

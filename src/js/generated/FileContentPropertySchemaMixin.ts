@@ -6,8 +6,6 @@ export type FileContentPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type FileContentPropertyInMemoryEntity = InMemoryEntity & FileContentPropertySchemaMixin;
-
 export function fileContentPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & FileContentPropertySchemaMixin {

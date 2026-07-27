@@ -6,9 +6,6 @@ export type JupyterNotebookEndpointPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type JupyterNotebookEndpointPropertyInMemoryEntity = InMemoryEntity &
-    JupyterNotebookEndpointPropertySchemaMixin;
-
 export function jupyterNotebookEndpointPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & JupyterNotebookEndpointPropertySchemaMixin {

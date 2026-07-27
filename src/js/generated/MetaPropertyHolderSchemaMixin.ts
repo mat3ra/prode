@@ -6,8 +6,6 @@ export type MetaPropertyHolderSchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type MetaPropertyHolderInMemoryEntity = InMemoryEntity & MetaPropertyHolderSchemaMixin;
-
 export function metaPropertyHolderSchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & MetaPropertyHolderSchemaMixin {

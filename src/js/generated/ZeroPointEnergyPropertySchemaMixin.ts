@@ -6,9 +6,6 @@ export type ZeroPointEnergyPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ZeroPointEnergyPropertyInMemoryEntity = InMemoryEntity &
-    ZeroPointEnergyPropertySchemaMixin;
-
 export function zeroPointEnergyPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ZeroPointEnergyPropertySchemaMixin {

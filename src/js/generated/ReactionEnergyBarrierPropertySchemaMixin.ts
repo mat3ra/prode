@@ -6,9 +6,6 @@ export type ReactionEnergyBarrierPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ReactionEnergyBarrierPropertyInMemoryEntity = InMemoryEntity &
-    ReactionEnergyBarrierPropertySchemaMixin;
-
 export function reactionEnergyBarrierPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ReactionEnergyBarrierPropertySchemaMixin {

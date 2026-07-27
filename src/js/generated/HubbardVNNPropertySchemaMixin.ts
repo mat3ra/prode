@@ -6,8 +6,6 @@ export type HubbardVNNPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type HubbardVNNPropertyInMemoryEntity = InMemoryEntity & HubbardVNNPropertySchemaMixin;
-
 export function hubbardVNNPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & HubbardVNNPropertySchemaMixin {

@@ -6,9 +6,6 @@ export type ConvergenceIonicPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ConvergenceIonicPropertyInMemoryEntity = InMemoryEntity &
-    ConvergenceIonicPropertySchemaMixin;
-
 export function convergenceIonicPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ConvergenceIonicPropertySchemaMixin {

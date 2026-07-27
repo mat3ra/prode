@@ -6,8 +6,6 @@ export type TotalForcePropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type TotalForcePropertyInMemoryEntity = InMemoryEntity & TotalForcePropertySchemaMixin;
-
 export function totalForcePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & TotalForcePropertySchemaMixin {

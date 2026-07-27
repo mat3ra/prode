@@ -6,8 +6,6 @@ export type ProtoPropertyHolderSchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ProtoPropertyHolderInMemoryEntity = InMemoryEntity & ProtoPropertyHolderSchemaMixin;
-
 export function protoPropertyHolderSchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ProtoPropertyHolderSchemaMixin {

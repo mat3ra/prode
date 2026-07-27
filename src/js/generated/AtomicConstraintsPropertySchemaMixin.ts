@@ -6,9 +6,6 @@ export type AtomicConstraintsPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type AtomicConstraintsPropertyInMemoryEntity = InMemoryEntity &
-    AtomicConstraintsPropertySchemaMixin;
-
 export function atomicConstraintsPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & AtomicConstraintsPropertySchemaMixin {

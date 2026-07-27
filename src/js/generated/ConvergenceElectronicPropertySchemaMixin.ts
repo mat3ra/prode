@@ -6,9 +6,6 @@ export type ConvergenceElectronicPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ConvergenceElectronicPropertyInMemoryEntity = InMemoryEntity &
-    ConvergenceElectronicPropertySchemaMixin;
-
 export function convergenceElectronicPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ConvergenceElectronicPropertySchemaMixin {

@@ -6,8 +6,6 @@ export type WorkflowPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type WorkflowPropertyInMemoryEntity = InMemoryEntity & WorkflowPropertySchemaMixin;
-
 export function workflowPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & WorkflowPropertySchemaMixin {

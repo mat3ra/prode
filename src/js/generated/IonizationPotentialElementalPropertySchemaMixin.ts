@@ -6,9 +6,6 @@ export type IonizationPotentialElementalPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type IonizationPotentialElementalPropertyInMemoryEntity = InMemoryEntity &
-    IonizationPotentialElementalPropertySchemaMixin;
-
 export function ionizationPotentialElementalPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & IonizationPotentialElementalPropertySchemaMixin {

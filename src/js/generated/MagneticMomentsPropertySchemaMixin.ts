@@ -6,9 +6,6 @@ export type MagneticMomentsPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type MagneticMomentsPropertyInMemoryEntity = InMemoryEntity &
-    MagneticMomentsPropertySchemaMixin;
-
 export function magneticMomentsPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & MagneticMomentsPropertySchemaMixin {

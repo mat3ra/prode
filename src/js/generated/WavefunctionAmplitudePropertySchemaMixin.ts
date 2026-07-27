@@ -6,9 +6,6 @@ export type WavefunctionAmplitudePropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type WavefunctionAmplitudePropertyInMemoryEntity = InMemoryEntity &
-    WavefunctionAmplitudePropertySchemaMixin;
-
 export function wavefunctionAmplitudePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & WavefunctionAmplitudePropertySchemaMixin {

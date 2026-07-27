@@ -6,9 +6,6 @@ export type PseudopotentialMetaPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type PseudopotentialMetaPropertyInMemoryEntity = InMemoryEntity &
-    PseudopotentialMetaPropertySchemaMixin;
-
 export function pseudopotentialMetaPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & PseudopotentialMetaPropertySchemaMixin {

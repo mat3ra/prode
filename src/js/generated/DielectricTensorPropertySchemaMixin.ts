@@ -6,9 +6,6 @@ export type DielectricTensorPropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type DielectricTensorPropertyInMemoryEntity = InMemoryEntity &
-    DielectricTensorPropertySchemaMixin;
-
 export function dielectricTensorPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & DielectricTensorPropertySchemaMixin {

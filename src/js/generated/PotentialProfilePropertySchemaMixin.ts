@@ -6,9 +6,6 @@ export type PotentialProfilePropertySchemaMixin = Omit<
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type PotentialProfilePropertyInMemoryEntity = InMemoryEntity &
-    PotentialProfilePropertySchemaMixin;
-
 export function potentialProfilePropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & PotentialProfilePropertySchemaMixin {
