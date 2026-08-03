@@ -1,9 +1,16 @@
 import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { ThermalCorrectionToEnthalpyPropertySchema } from "@mat3ra/esse/dist/js/types";
+import type {
+    BaseInMemoryEntitySchema,
+    ThermalCorrectionToEnthalpyPropertySchema,
+} from "@mat3ra/esse/dist/js/types";
 
 export type ThermalCorrectionToEnthalpyPropertySchemaMixin = Omit<
     ThermalCorrectionToEnthalpyPropertySchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
+>;
+
+export type ThermalCorrectionToEnthalpyPropertyInMemoryEntity = InMemoryEntity<
+    BaseInMemoryEntitySchema & ThermalCorrectionToEnthalpyPropertySchemaMixin
 >;
 
 export function thermalCorrectionToEnthalpyPropertySchemaMixin<T extends InMemoryEntity>(

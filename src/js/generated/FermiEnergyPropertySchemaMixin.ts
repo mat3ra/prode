@@ -1,9 +1,16 @@
 import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { FermiEnergyPropertySchema } from "@mat3ra/esse/dist/js/types";
+import type {
+    BaseInMemoryEntitySchema,
+    FermiEnergyPropertySchema,
+} from "@mat3ra/esse/dist/js/types";
 
 export type FermiEnergyPropertySchemaMixin = Omit<
     FermiEnergyPropertySchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
+>;
+
+export type FermiEnergyPropertyInMemoryEntity = InMemoryEntity<
+    BaseInMemoryEntitySchema & FermiEnergyPropertySchemaMixin
 >;
 
 export function fermiEnergyPropertySchemaMixin<T extends InMemoryEntity>(

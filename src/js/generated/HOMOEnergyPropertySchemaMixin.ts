@@ -1,9 +1,16 @@
 import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { HOMOEnergyPropertySchema } from "@mat3ra/esse/dist/js/types";
+import type {
+    BaseInMemoryEntitySchema,
+    HOMOEnergyPropertySchema,
+} from "@mat3ra/esse/dist/js/types";
 
 export type HOMOEnergyPropertySchemaMixin = Omit<
     HOMOEnergyPropertySchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
+>;
+
+export type HOMOEnergyPropertyInMemoryEntity = InMemoryEntity<
+    BaseInMemoryEntitySchema & HOMOEnergyPropertySchemaMixin
 >;
 
 export function hOMOEnergyPropertySchemaMixin<T extends InMemoryEntity>(

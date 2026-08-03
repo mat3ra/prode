@@ -1,9 +1,16 @@
 import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { ZeroPointEnergyPropertySchema } from "@mat3ra/esse/dist/js/types";
+import type {
+    BaseInMemoryEntitySchema,
+    ZeroPointEnergyPropertySchema,
+} from "@mat3ra/esse/dist/js/types";
 
 export type ZeroPointEnergyPropertySchemaMixin = Omit<
     ZeroPointEnergyPropertySchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
+>;
+
+export type ZeroPointEnergyPropertyInMemoryEntity = InMemoryEntity<
+    BaseInMemoryEntitySchema & ZeroPointEnergyPropertySchemaMixin
 >;
 
 export function zeroPointEnergyPropertySchemaMixin<T extends InMemoryEntity>(

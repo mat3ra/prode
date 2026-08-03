@@ -1,9 +1,16 @@
 import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { TotalEnergyPropertySchema } from "@mat3ra/esse/dist/js/types";
+import type {
+    BaseInMemoryEntitySchema,
+    TotalEnergyPropertySchema,
+} from "@mat3ra/esse/dist/js/types";
 
 export type TotalEnergyPropertySchemaMixin = Omit<
     TotalEnergyPropertySchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
+>;
+
+export type TotalEnergyPropertyInMemoryEntity = InMemoryEntity<
+    BaseInMemoryEntitySchema & TotalEnergyPropertySchemaMixin
 >;
 
 export function totalEnergyPropertySchemaMixin<T extends InMemoryEntity>(

@@ -1,4 +1,5 @@
 import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { WavefunctionAmplitudePropertySchema } from "@mat3ra/esse/dist/js/types";
+import type { BaseInMemoryEntitySchema, WavefunctionAmplitudePropertySchema } from "@mat3ra/esse/dist/js/types";
 export type WavefunctionAmplitudePropertySchemaMixin = Omit<WavefunctionAmplitudePropertySchema, "_id" | "slug" | "systemName" | "schemaVersion">;
+export type WavefunctionAmplitudePropertyInMemoryEntity = InMemoryEntity<BaseInMemoryEntitySchema & WavefunctionAmplitudePropertySchemaMixin>;
 export declare function wavefunctionAmplitudePropertySchemaMixin<T extends InMemoryEntity>(item: InMemoryEntity): asserts item is T & WavefunctionAmplitudePropertySchemaMixin;
