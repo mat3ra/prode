@@ -1,19 +1,15 @@
 import { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { Constructor } from "@mat3ra/code/dist/js/utils/types";
 import type { PropertyHolderSchema } from "@mat3ra/esse/dist/js/types";
 
-import type { PropertyHolderMixin } from "./mixins/PropertyHolderMixin";
-import { propertyHolderMixin } from "./mixins/PropertyHolderMixin";
+import { type PropertyHolderMixin, propertyHolderMixin } from "./mixins/PropertyHolderMixin";
 
 type Schema = PropertyHolderSchema;
 
-type Base = typeof InMemoryEntity & Constructor<PropertyHolderMixin>;
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface PropertyHolder extends PropertyHolderMixin {}
 
-export default class PropertyHolder extends (InMemoryEntity as Base) implements Schema {
-    // eslint-disable-next-line no-useless-constructor
-    constructor(data: Schema) {
-        super(data);
-    }
-}
+class PropertyHolder<S extends Schema = Schema> extends InMemoryEntity<S> implements Schema {}
 
 propertyHolderMixin(PropertyHolder.prototype);
+
+export default PropertyHolder;

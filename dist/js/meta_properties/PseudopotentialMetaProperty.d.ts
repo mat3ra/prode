@@ -1,4 +1,3 @@
-import type { Constructor } from "@mat3ra/code/dist/js/utils/types";
 import type { FileDataItem as Schema } from "@mat3ra/esse/dist/js/types";
 import { type PseudopotentialMetaPropertySchemaMixin } from "../generated/PseudopotentialMetaPropertySchemaMixin";
 import MetaProperty from "../MetaProperty";
@@ -9,7 +8,8 @@ type RawDataObject = {
 declare enum CompatibleExchangeCorrelationKey {
     hse06 = "hse06"
 }
-type Base = typeof MetaProperty & Constructor<PseudopotentialMetaPropertySchemaMixin>;
+interface PseudopotentialMetaProperty extends PseudopotentialMetaPropertySchemaMixin {
+}
 export type ExchangeCorrelation = {
     functional?: string;
     approximation: string;
@@ -21,15 +21,13 @@ export type PseudopotentialFilter = {
     exchangeCorrelation?: ExchangeCorrelation;
     elements?: string[];
 };
-declare const PseudopotentialMetaProperty_base: Base;
-export default class PseudopotentialMetaProperty extends PseudopotentialMetaProperty_base implements Schema {
+declare class PseudopotentialMetaProperty extends MetaProperty<Schema> implements Schema {
     static readonly propertyName = PropertyName.pseudopotential;
     static readonly propertyType = PropertyType.non_scalar;
     static readonly compatibleExchangeCorrelation: {
         hse06: string[];
     };
-    _json: Omit<Schema, "name">;
-    toJSON: () => Omit<Schema, "name">;
+    readonly name = PropertyName.pseudopotential;
     constructor(config: Omit<Schema, "name">);
     get isCustom(): boolean;
     /**
@@ -75,4 +73,4 @@ export default class PseudopotentialMetaProperty extends PseudopotentialMetaProp
     static sortByPathApplicationSpecific(pseudos: PseudopotentialMetaProperty[], appName?: string): PseudopotentialMetaProperty[];
     static filterByType(pseudos: PseudopotentialMetaProperty[], pseudoType?: string): PseudopotentialMetaProperty[];
 }
-export {};
+export default PseudopotentialMetaProperty;

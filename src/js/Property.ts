@@ -1,6 +1,7 @@
-import { NamedInMemoryEntity } from "@mat3ra/code/dist/js/entity";
+import { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
+import { namedEntityMixin } from "@mat3ra/code/dist/js/entity/mixins/NamedEntityMixin";
 import type { AnyObject } from "@mat3ra/esse/dist/js/esse/types";
-import type { PropertyHolderSchema } from "@mat3ra/esse/dist/js/types";
+import type { BaseInMemoryEntitySchema, PropertyHolderSchema } from "@mat3ra/esse/dist/js/types";
 
 import { type PropertyName, PropertyType } from "./settings";
 
@@ -11,14 +12,10 @@ export type PropertyRowValue = PropertySchemaJSON & {
     group?: string;
 };
 
-export default class Property<TSchema extends object = object> extends NamedInMemoryEntity {
-    declare toJSON: (exclude?: string[]) => TSchema & AnyObject;
-
-    declare _json: TSchema & AnyObject;
-
+class Property<TSchema extends object = object> extends InMemoryEntity<
+    TSchema & BaseInMemoryEntitySchema
+> {
     declare name: `${PropertyName}`;
-
-    readonly prettyName = Property.prettifyName(this.name);
 
     static readonly propertyType: PropertyType;
 
@@ -47,3 +44,7 @@ export default class Property<TSchema extends object = object> extends NamedInMe
         return (name.charAt(0).toUpperCase() + name.slice(1)).replace("_", " ");
     }
 }
+
+namedEntityMixin(Property.prototype);
+
+export default Property;

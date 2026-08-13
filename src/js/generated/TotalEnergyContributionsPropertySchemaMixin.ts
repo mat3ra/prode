@@ -1,23 +1,26 @@
 import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { TotalEnergyContributionsPropertySchema } from "@mat3ra/esse/dist/js/types";
+import type {
+    BaseInMemoryEntitySchema,
+    TotalEnergyContributionsPropertySchema,
+} from "@mat3ra/esse/dist/js/types";
 
 export type TotalEnergyContributionsPropertySchemaMixin = Omit<
     TotalEnergyContributionsPropertySchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type TotalEnergyContributionsPropertyInMemoryEntity = InMemoryEntity &
-    TotalEnergyContributionsPropertySchemaMixin;
+export type TotalEnergyContributionsPropertyInMemoryEntity = InMemoryEntity<
+    BaseInMemoryEntitySchema & TotalEnergyContributionsPropertySchemaMixin
+>;
 
 export function totalEnergyContributionsPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & TotalEnergyContributionsPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & TotalEnergyContributionsPropertySchemaMixin = {
+    const properties: InMemoryEntity<TotalEnergyContributionsPropertySchemaMixin> &
+        TotalEnergyContributionsPropertySchemaMixin = {
         get temperatureEntropy() {
-            return this.prop<TotalEnergyContributionsPropertySchema["temperatureEntropy"]>(
-                "temperatureEntropy",
-            );
+            return this.prop("temperatureEntropy");
         },
         set temperatureEntropy(
             value: TotalEnergyContributionsPropertySchema["temperatureEntropy"],
@@ -25,43 +28,37 @@ export function totalEnergyContributionsPropertySchemaMixin<T extends InMemoryEn
             this.setProp("temperatureEntropy", value);
         },
         get harris_foulkes() {
-            return this.prop<TotalEnergyContributionsPropertySchema["harris_foulkes"]>(
-                "harris_foulkes",
-            );
+            return this.prop("harris_foulkes");
         },
         set harris_foulkes(value: TotalEnergyContributionsPropertySchema["harris_foulkes"]) {
             this.setProp("harris_foulkes", value);
         },
         get smearing() {
-            return this.prop<TotalEnergyContributionsPropertySchema["smearing"]>("smearing");
+            return this.prop("smearing");
         },
         set smearing(value: TotalEnergyContributionsPropertySchema["smearing"]) {
             this.setProp("smearing", value);
         },
         get one_electron() {
-            return this.prop<TotalEnergyContributionsPropertySchema["one_electron"]>(
-                "one_electron",
-            );
+            return this.prop("one_electron");
         },
         set one_electron(value: TotalEnergyContributionsPropertySchema["one_electron"]) {
             this.setProp("one_electron", value);
         },
         get hartree() {
-            return this.prop<TotalEnergyContributionsPropertySchema["hartree"]>("hartree");
+            return this.prop("hartree");
         },
         set hartree(value: TotalEnergyContributionsPropertySchema["hartree"]) {
             this.setProp("hartree", value);
         },
         get exchange() {
-            return this.prop<TotalEnergyContributionsPropertySchema["exchange"]>("exchange");
+            return this.prop("exchange");
         },
         set exchange(value: TotalEnergyContributionsPropertySchema["exchange"]) {
             this.setProp("exchange", value);
         },
         get exchange_correlation() {
-            return this.prop<TotalEnergyContributionsPropertySchema["exchange_correlation"]>(
-                "exchange_correlation",
-            );
+            return this.prop("exchange_correlation");
         },
         set exchange_correlation(
             value: TotalEnergyContributionsPropertySchema["exchange_correlation"],
@@ -69,35 +66,31 @@ export function totalEnergyContributionsPropertySchemaMixin<T extends InMemoryEn
             this.setProp("exchange_correlation", value);
         },
         get ewald() {
-            return this.prop<TotalEnergyContributionsPropertySchema["ewald"]>("ewald");
+            return this.prop("ewald");
         },
         set ewald(value: TotalEnergyContributionsPropertySchema["ewald"]) {
             this.setProp("ewald", value);
         },
         get alphaZ() {
-            return this.prop<TotalEnergyContributionsPropertySchema["alphaZ"]>("alphaZ");
+            return this.prop("alphaZ");
         },
         set alphaZ(value: TotalEnergyContributionsPropertySchema["alphaZ"]) {
             this.setProp("alphaZ", value);
         },
         get atomicEnergy() {
-            return this.prop<TotalEnergyContributionsPropertySchema["atomicEnergy"]>(
-                "atomicEnergy",
-            );
+            return this.prop("atomicEnergy");
         },
         set atomicEnergy(value: TotalEnergyContributionsPropertySchema["atomicEnergy"]) {
             this.setProp("atomicEnergy", value);
         },
         get eigenvalues() {
-            return this.prop<TotalEnergyContributionsPropertySchema["eigenvalues"]>("eigenvalues");
+            return this.prop("eigenvalues");
         },
         set eigenvalues(value: TotalEnergyContributionsPropertySchema["eigenvalues"]) {
             this.setProp("eigenvalues", value);
         },
         get PAWDoubleCounting2() {
-            return this.prop<TotalEnergyContributionsPropertySchema["PAWDoubleCounting2"]>(
-                "PAWDoubleCounting2",
-            );
+            return this.prop("PAWDoubleCounting2");
         },
         set PAWDoubleCounting2(
             value: TotalEnergyContributionsPropertySchema["PAWDoubleCounting2"],
@@ -105,9 +98,7 @@ export function totalEnergyContributionsPropertySchemaMixin<T extends InMemoryEn
             this.setProp("PAWDoubleCounting2", value);
         },
         get PAWDoubleCounting3() {
-            return this.prop<TotalEnergyContributionsPropertySchema["PAWDoubleCounting3"]>(
-                "PAWDoubleCounting3",
-            );
+            return this.prop("PAWDoubleCounting3");
         },
         set PAWDoubleCounting3(
             value: TotalEnergyContributionsPropertySchema["PAWDoubleCounting3"],
@@ -115,19 +106,19 @@ export function totalEnergyContributionsPropertySchemaMixin<T extends InMemoryEn
             this.setProp("PAWDoubleCounting3", value);
         },
         get hartreeFock() {
-            return this.prop<TotalEnergyContributionsPropertySchema["hartreeFock"]>("hartreeFock");
+            return this.prop("hartreeFock");
         },
         set hartreeFock(value: TotalEnergyContributionsPropertySchema["hartreeFock"]) {
             this.setProp("hartreeFock", value);
         },
         get name() {
-            return this.requiredProp<TotalEnergyContributionsPropertySchema["name"]>("name");
+            return this.requiredProp("name");
         },
         set name(value: TotalEnergyContributionsPropertySchema["name"]) {
             this.setProp("name", value);
         },
         get units() {
-            return this.prop<TotalEnergyContributionsPropertySchema["units"]>("units");
+            return this.prop("units");
         },
         set units(value: TotalEnergyContributionsPropertySchema["units"]) {
             this.setProp("units", value);

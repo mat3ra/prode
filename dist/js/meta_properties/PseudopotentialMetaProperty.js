@@ -14,6 +14,7 @@ var CompatibleExchangeCorrelationKey;
 class PseudopotentialMetaProperty extends MetaProperty_1.default {
     constructor(config) {
         super({ ...config, name: PseudopotentialMetaProperty.propertyName });
+        this.name = settings_1.PropertyName.pseudopotential;
     }
     get isCustom() {
         return this.source === "user";
@@ -159,5 +160,5 @@ PseudopotentialMetaProperty.propertyType = settings_1.PropertyType.non_scalar;
 PseudopotentialMetaProperty.compatibleExchangeCorrelation = {
     hse06: ["pbe", "hse06"],
 };
-exports.default = PseudopotentialMetaProperty;
 (0, PseudopotentialMetaPropertySchemaMixin_1.pseudopotentialMetaPropertySchemaMixin)(PseudopotentialMetaProperty.prototype);
+exports.default = PseudopotentialMetaProperty;

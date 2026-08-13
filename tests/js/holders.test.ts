@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-expressions */
+import type { PropertyHolderSchema } from "@mat3ra/esse/dist/js/types";
 import { expect } from "chai";
 
 import { PropertyName } from "../../src/js";
@@ -82,5 +83,39 @@ describe("Holders", () => {
 
         expect(protoPropertyHolder).to.be.instanceOf(ProtoPropertyHolder);
         expect(protoPropertyHolder.property).to.exist;
+    });
+
+    describe("generic schema wrapper", () => {
+        type WiderPropertyHolderSchema = PropertyHolderSchema & { webappOnly?: string };
+
+        class WiderPropertyHolder extends PropertyHolder<WiderPropertyHolderSchema> {}
+
+        it("allows subclasses to widen _json typing and storage", () => {
+            const propertyHolder = new WiderPropertyHolder({
+                data: {
+                    name: PropertyName.total_energy,
+                    value: 100.5,
+                    units: "eV",
+                },
+                source: {
+                    type: "exabyte",
+                    info: {
+                        jobId: "test-123",
+                        unitId: "test-456",
+                    },
+                },
+                exabyteId: ["test-789", "test-101"],
+                repetition: 1,
+            });
+
+            propertyHolder._json.webappOnly = "webapp-value";
+            expect(propertyHolder._json.webappOnly).to.equal("webapp-value");
+
+            expect(propertyHolder.toJSON().data.name).to.equal(PropertyName.total_energy);
+            expect(propertyHolder._json.webappOnly).to.equal("webapp-value");
+
+            propertyHolder._json.webappOnly = "updated";
+            expect(propertyHolder._json.webappOnly).to.equal("updated");
+        });
     });
 });

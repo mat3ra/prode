@@ -1,26 +1,32 @@
 import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { ProtoPropertyHolderSchema } from "@mat3ra/esse/dist/js/types";
+import type {
+    BaseInMemoryEntitySchema,
+    ProtoPropertyHolderSchema,
+} from "@mat3ra/esse/dist/js/types";
 
 export type ProtoPropertyHolderSchemaMixin = Omit<
     ProtoPropertyHolderSchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type ProtoPropertyHolderInMemoryEntity = InMemoryEntity & ProtoPropertyHolderSchemaMixin;
+export type ProtoPropertyHolderInMemoryEntity = InMemoryEntity<
+    BaseInMemoryEntitySchema & ProtoPropertyHolderSchemaMixin
+>;
 
 export function protoPropertyHolderSchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
 ): asserts item is T & ProtoPropertyHolderSchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity & ProtoPropertyHolderSchemaMixin = {
+    const properties: InMemoryEntity<ProtoPropertyHolderSchemaMixin> &
+        ProtoPropertyHolderSchemaMixin = {
         get data() {
-            return this.requiredProp<ProtoPropertyHolderSchema["data"]>("data");
+            return this.requiredProp("data");
         },
         set data(value: ProtoPropertyHolderSchema["data"]) {
             this.setProp("data", value);
         },
         get source() {
-            return this.requiredProp<ProtoPropertyHolderSchema["source"]>("source");
+            return this.requiredProp("source");
         },
         set source(value: ProtoPropertyHolderSchema["source"]) {
             this.setProp("source", value);
