@@ -1,5 +1,0 @@
-import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { BaseInMemoryEntitySchema, ReactionEnergyBarrierPropertySchema } from "@mat3ra/esse/dist/js/types";
-export type ReactionEnergyBarrierPropertySchemaMixin = Omit<ReactionEnergyBarrierPropertySchema, "_id" | "slug" | "systemName" | "schemaVersion">;
-export type ReactionEnergyBarrierPropertyInMemoryEntity = InMemoryEntity<BaseInMemoryEntitySchema & ReactionEnergyBarrierPropertySchemaMixin>;
-export declare function reactionEnergyBarrierPropertySchemaMixin<T extends InMemoryEntity>(item: InMemoryEntity): asserts item is T & ReactionEnergyBarrierPropertySchemaMixin;

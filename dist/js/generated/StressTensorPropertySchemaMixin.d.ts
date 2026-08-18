@@ -1,5 +1,0 @@
-import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { BaseInMemoryEntitySchema, StressTensorPropertySchema } from "@mat3ra/esse/dist/js/types";
-export type StressTensorPropertySchemaMixin = Omit<StressTensorPropertySchema, "_id" | "slug" | "systemName" | "schemaVersion">;
-export type StressTensorPropertyInMemoryEntity = InMemoryEntity<BaseInMemoryEntitySchema & StressTensorPropertySchemaMixin>;
-export declare function stressTensorPropertySchemaMixin<T extends InMemoryEntity>(item: InMemoryEntity): asserts item is T & StressTensorPropertySchemaMixin;

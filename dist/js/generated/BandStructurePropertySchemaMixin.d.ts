@@ -1,5 +1,0 @@
-import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type { BandStructurePropertySchema, BaseInMemoryEntitySchema } from "@mat3ra/esse/dist/js/types";
-export type BandStructurePropertySchemaMixin = Omit<BandStructurePropertySchema, "_id" | "slug" | "systemName" | "schemaVersion">;
-export type BandStructurePropertyInMemoryEntity = InMemoryEntity<BaseInMemoryEntitySchema & BandStructurePropertySchemaMixin>;
-export declare function bandStructurePropertySchemaMixin<T extends InMemoryEntity>(item: InMemoryEntity): asserts item is T & BandStructurePropertySchemaMixin;
