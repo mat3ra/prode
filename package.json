@@ -52,9 +52,9 @@
     "devDependencies": {
         "@babel/eslint-parser": "^7.16.3",
         "@exabyte-io/eslint-config": "2025.5.13-0",
-        "@mat3ra/code": "https://github.com/mat3ra/code/releases/download/wip-c893e27/code.tgz",
-        "@mat3ra/esse": "https://github.com/mat3ra/esse/releases/download/wip-b8494e3c7/esse.tgz",
-        "@mat3ra/made": "https://github.com/mat3ra/made/releases/download/wip-b5ab8c9/made.tgz",
+        "@mat3ra/code": "2026.8.18-0",
+        "@mat3ra/esse": "2026.8.18-2",
+        "@mat3ra/made": "2026.8.18-0",
         "@mat3ra/tsconfig": "2024.6.3-0",
         "@types/lodash": "^4.17.20",
         "@typescript-eslint/eslint-plugin": "^5.9.1",
