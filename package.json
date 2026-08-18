@@ -14,7 +14,8 @@
         "prepare": "husky install",
         "prettier": "prettier --check src/js tests/js",
         "transpile": "tsc -p tsconfig-transpile.json",
-        "generate-mixins": "ts-node scripts/generate-mixins.ts"
+        "generate-mixins": "ts-node scripts/generate-mixins.ts",
+        "prepublishOnly": "npm run transpile"
     },
     "repository": {
         "type": "git",
