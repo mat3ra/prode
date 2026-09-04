@@ -133,4 +133,12 @@ describe("HysteresisLoopProperty", () => {
         // Test loop parameters
         expect(hysteresisLoopProperty.parameters.off.imprint.count).to.equal(8);
     });
+
+    it("shows the legend so the on and off series are distinguishable", () => {
+        const property = new HysteresisLoopProperty(config);
+        expect(
+            (property.chartConfig.legend as { enabled?: boolean } | undefined)?.enabled,
+        ).to.not.equal(false);
+        expect(property.chartConfig.legend).to.have.property("verticalAlign", "bottom");
+    });
 });

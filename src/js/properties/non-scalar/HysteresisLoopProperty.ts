@@ -36,6 +36,18 @@ export class HysteresisLoopConfig extends TwoDimensionalHighChartConfigMixin {
             name: this.legends[index],
         }));
     }
+
+    get overrideConfig() {
+        return {
+            ...super.overrideConfig,
+            legend: {
+                layout: "horizontal",
+                align: "center",
+                verticalAlign: "bottom",
+                borderWidth: 0,
+            },
+        };
+    }
 }
 
 type Base = typeof Property<Schema> & Constructor<HysteresisLoopPropertySchemaMixin>;
