@@ -59,6 +59,8 @@ const OUTPUT_PATHS = {
         "src/js/generated/PotentialProfilePropertySchemaMixin.ts",
     "properties-directory/non-scalar/reaction-energy-profile":
         "src/js/generated/ReactionEnergyProfilePropertySchemaMixin.ts",
+    "properties-directory/non-scalar/hysteresis-loop":
+        "src/js/generated/HysteresisLoopPropertySchemaMixin.ts",
     "properties-directory/workflow/convergence/ionic":
         "src/js/generated/ConvergenceIonicPropertySchemaMixin.ts",
     "properties-directory/workflow/convergence/electronic":
@@ -85,6 +87,13 @@ const OUTPUT_PATHS = {
         "src/js/generated/InterfacialEnergyPropertySchemaMixin.ts",
     "properties-directory/scalar/defect-formation-energy":
         "src/js/generated/DefectFormationEnergyPropertySchemaMixin.ts",
+    "properties-directory/scalar/imprint": "src/js/generated/ImprintPropertySchemaMixin.ts",
+    "properties-directory/scalar/coercive-voltage":
+        "src/js/generated/CoerciveVoltagePropertySchemaMixin.ts",
+    "properties-directory/scalar/loop-width": "src/js/generated/LoopWidthPropertySchemaMixin.ts",
+    "properties-directory/scalar/loop-height": "src/js/generated/LoopHeightPropertySchemaMixin.ts",
+    "properties-directory/scalar/remanent-response":
+        "src/js/generated/RemanentResponsePropertySchemaMixin.ts",
     "properties-directory/scalar/thermal-correction-to-energy":
         "src/js/generated/ThermalCorrectionToEnergyPropertySchemaMixin.ts",
     "properties-directory/scalar/thermal-correction-to-enthalpy":

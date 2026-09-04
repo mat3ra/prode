@@ -21,6 +21,7 @@ import FinalStructureProperty from "./properties/non-scalar/FinalStructureProper
 import HubbardUProperty from "./properties/non-scalar/HubbardUProperty";
 import HubbardVNNProperty from "./properties/non-scalar/HubbardVNNProperty";
 import HubbardVProperty from "./properties/non-scalar/HubbardVProperty";
+import HysteresisLoopProperty from "./properties/non-scalar/HysteresisLoopProperty";
 import IsRelaxedProperty from "./properties/non-scalar/IsRelaxedProperty";
 import JupyterNotebookEndpointProperty from "./properties/non-scalar/JupyterNotebookEndpointProperty";
 import PhononDispersionsProperty from "./properties/non-scalar/PhononDispersionsProperty";
@@ -30,15 +31,20 @@ import ReactionEnergyProfileProperty from "./properties/non-scalar/ReactionEnerg
 import WavefunctionAmplitudeProperty from "./properties/non-scalar/WavefunctionAmplitudeProperty";
 import WorkflowProperty from "./properties/non-scalar/WorkflowProperty";
 import TotalEnergyContributionsProperty from "./properties/object/TotalEnergyContributionsProperty";
+import CoerciveVoltageProperty from "./properties/scalar/CoerciveVoltageProperty";
 import DefectFormationEnergyProperty from "./properties/scalar/DefectFormationEnergyProperty";
 import FermiEnergyProperty from "./properties/scalar/FermiEnergyProperty";
 import FormationEnergyProperty from "./properties/scalar/FormationEnergyProperty";
 import HOMOEnergyProperty from "./properties/scalar/HOMOEnergyProperty";
+import ImprintProperty from "./properties/scalar/ImprintProperty";
 import InterfacialEnergyProperty from "./properties/scalar/InterfacialEnergyProperty";
 import IonizationPotentialElementalProperty from "./properties/scalar/IonizationPotentialElementalProperty";
+import LoopHeightProperty from "./properties/scalar/LoopHeightProperty";
+import LoopWidthProperty from "./properties/scalar/LoopWidthProperty";
 import LUMOEnergyProperty from "./properties/scalar/LUMOEnergyProperty";
 import PressureProperty from "./properties/scalar/PressureProperty";
 import ReactionEnergyBarrierProperty from "./properties/scalar/ReactionEnergyBarrierProperty";
+import RemanentResponseProperty from "./properties/scalar/RemanentResponseProperty";
 import SurfaceEnergyProperty from "./properties/scalar/SurfaceEnergyProperty";
 import ThermalCorrectionToEnergyProperty from "./properties/scalar/ThermalCorrectionToEnergyProperty";
 import ThermalCorrectionToEnthalpyProperty from "./properties/scalar/ThermalCorrectionToEnthalpyProperty";
@@ -75,6 +81,11 @@ type PropertyClassMap = {
         | Constructor<ThermalCorrectionToEnergyProperty>
         | Constructor<ThermalCorrectionToEnthalpyProperty>
         | Constructor<ZeroPointEnergyProperty>
+        | Constructor<ImprintProperty>
+        | Constructor<CoerciveVoltageProperty>
+        | Constructor<LoopWidthProperty>
+        | Constructor<LoopHeightProperty>
+        | Constructor<RemanentResponseProperty>
         | Constructor<TotalEnergyContributionsProperty>
         | Constructor<FormationEnergyContributionsProperty>
         | Constructor<AtomicForcesProperty>
@@ -90,6 +101,7 @@ type PropertyClassMap = {
         | Constructor<MagneticMomentsProperty>
         | Constructor<ReactionEnergyBarrierProperty>
         | Constructor<ReactionEnergyProfileProperty>
+        | Constructor<HysteresisLoopProperty>
         | Constructor<PotentialProfileProperty>
         | Constructor<WavefunctionAmplitudeProperty>
         | Constructor<ChargeDensityProfileProperty>
@@ -130,6 +142,11 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
     [ThermalCorrectionToEnergyProperty.propertyName]: ThermalCorrectionToEnergyProperty,
     [ThermalCorrectionToEnthalpyProperty.propertyName]: ThermalCorrectionToEnthalpyProperty,
     [ZeroPointEnergyProperty.propertyName]: ZeroPointEnergyProperty,
+    [ImprintProperty.propertyName]: ImprintProperty,
+    [CoerciveVoltageProperty.propertyName]: CoerciveVoltageProperty,
+    [LoopWidthProperty.propertyName]: LoopWidthProperty,
+    [LoopHeightProperty.propertyName]: LoopHeightProperty,
+    [RemanentResponseProperty.propertyName]: RemanentResponseProperty,
     [TotalEnergyContributionsProperty.propertyName]: TotalEnergyContributionsProperty,
     [FormationEnergyContributionsProperty.propertyName]: FormationEnergyContributionsProperty,
     [AtomicForcesProperty.propertyName]: AtomicForcesProperty,
@@ -145,6 +162,7 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
     [MagneticMomentsProperty.propertyName]: MagneticMomentsProperty,
     [ReactionEnergyBarrierProperty.propertyName]: ReactionEnergyBarrierProperty,
     [ReactionEnergyProfileProperty.propertyName]: ReactionEnergyProfileProperty,
+    [HysteresisLoopProperty.propertyName]: HysteresisLoopProperty,
     [PotentialProfileProperty.propertyName]: PotentialProfileProperty,
     [WavefunctionAmplitudeProperty.propertyName]: WavefunctionAmplitudeProperty,
     [ChargeDensityProfileProperty.propertyName]: ChargeDensityProfileProperty,
