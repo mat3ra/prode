@@ -36,7 +36,7 @@ describe("HysteresisLoopProperty", () => {
 
         // Test defined properties
         expect(hysteresisLoopProperty.subtitle).to.equal("Hysteresis Loop");
-        expect(hysteresisLoopProperty.yAxisTitle).to.equal("amplitude (m)");
+        expect(hysteresisLoopProperty.yAxisTitle).to.equal("Amplitude (m)");
         expect(hysteresisLoopProperty.xAxisTitle).to.equal("Bias (V)");
         expect(hysteresisLoopProperty.chartConfig).to.exist;
         expect(hysteresisLoopProperty.chartConfig).to.be.an("object");

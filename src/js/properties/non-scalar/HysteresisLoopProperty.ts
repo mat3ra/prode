@@ -8,14 +8,22 @@ import {
 } from "../../generated/HysteresisLoopPropertySchemaMixin";
 import Property from "../../Property";
 import { PropertyName, PropertyType } from "../../settings";
-import { TwoDimensionalHighChartConfigMixin } from "../include/mixins/2d_plot";
+import {
+    type TwoDimensionalHighChartConfigMixinParams,
+    TwoDimensionalHighChartConfigMixin,
+} from "../include/mixins/2d_plot";
 
 type Schema = HysteresisLoopPropertySchema;
 
 export class HysteresisLoopConfig extends TwoDimensionalHighChartConfigMixin {
     readonly tooltipXAxisName: string = "bias";
 
-    readonly tooltipYAxisName: string = "response";
+    readonly tooltipYAxisName: string;
+
+    constructor(property: TwoDimensionalHighChartConfigMixinParams & Pick<Schema, "yAxis">) {
+        super(property);
+        this.tooltipYAxisName = property.yAxis.label;
+    }
 }
 
 type Base = typeof Property<Schema> & Constructor<HysteresisLoopPropertySchemaMixin>;
@@ -23,9 +31,11 @@ type Base = typeof Property<Schema> & Constructor<HysteresisLoopPropertySchemaMi
 class HysteresisLoopProperty extends (Property as Base) implements Schema {
     readonly subtitle: string = "Hysteresis Loop";
 
-    readonly yAxisTitle: string = `${this.yAxis.label} (${this.yAxis.units})`;
+    readonly yAxisTitle: string = `${Property.prettifyName(this.yAxis.label)} (${
+        this.yAxis.units
+    })`;
 
-    readonly xAxisTitle: string = "Bias (V)";
+    readonly xAxisTitle: string = `Bias (${this.xAxis.units})`;
 
     readonly chartConfig: Options = new HysteresisLoopConfig(this).config;
 
