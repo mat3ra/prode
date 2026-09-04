@@ -15,32 +15,47 @@ import {
 
 type Schema = HysteresisLoopPropertySchema;
 
+const FIELD_CONDITION_NAMES: Record<string, string> = {
+    on: "On-field",
+    off: "Off-field",
+};
+
 export class HysteresisLoopConfig extends TwoDimensionalHighChartConfigMixin {
     readonly tooltipXAxisName: string = "bias";
 
     readonly tooltipYAxisName: string;
 
-    readonly legends: Schema["legend"];
+    readonly seriesNames: Schema["legend"];
 
     constructor(
         property: TwoDimensionalHighChartConfigMixinParams & Pick<Schema, "yAxis" | "legend">,
     ) {
-        super(property);
+        super({
+            subtitle: property.subtitle,
+            yAxisTitle: property.yAxisTitle,
+            xAxisTitle: property.xAxisTitle,
+            xDataArray: property.xDataArray,
+            yDataSeries: property.yDataSeries,
+        });
         this.tooltipYAxisName = property.yAxis.label;
-        this.legends = property.legend;
+        this.seriesNames = property.legend;
     }
 
     get series() {
-        return super.series.map((series, index) => ({
-            ...series,
-            name: this.legends[index],
-        }));
+        return super.series.map((series, index) => {
+            const seriesName = this.seriesNames?.[index];
+            return {
+                ...series,
+                name: (seriesName && FIELD_CONDITION_NAMES[seriesName]) || seriesName,
+            };
+        });
     }
 
     get overrideConfig() {
         return {
             ...super.overrideConfig,
             legend: {
+                enabled: true,
                 layout: "horizontal",
                 align: "center",
                 verticalAlign: "bottom",
