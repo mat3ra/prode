@@ -49,12 +49,6 @@ export function hysteresisLoopPropertySchemaMixin<T extends InMemoryEntity>(
         set parameters(value: HysteresisLoopPropertySchema["parameters"]) {
             this.setProp("parameters", value);
         },
-        get loopCount() {
-            return this.prop("loopCount");
-        },
-        set loopCount(value: HysteresisLoopPropertySchema["loopCount"]) {
-            this.setProp("loopCount", value);
-        },
         get xDataArray() {
             return this.requiredProp("xDataArray");
         },
