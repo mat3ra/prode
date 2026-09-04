@@ -20,9 +20,21 @@ export class HysteresisLoopConfig extends TwoDimensionalHighChartConfigMixin {
 
     readonly tooltipYAxisName: string;
 
-    constructor(property: TwoDimensionalHighChartConfigMixinParams & Pick<Schema, "yAxis">) {
+    readonly legends: Schema["legend"];
+
+    constructor(
+        property: TwoDimensionalHighChartConfigMixinParams & Pick<Schema, "yAxis" | "legend">,
+    ) {
         super(property);
         this.tooltipYAxisName = property.yAxis.label;
+        this.legends = property.legend;
+    }
+
+    get series() {
+        return super.series.map((series, index) => ({
+            ...series,
+            name: this.legends[index],
+        }));
     }
 }
 

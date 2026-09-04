@@ -8,11 +8,6 @@ export { default as FinalStructureProperty } from "./properties/non-scalar/Final
 export { default as BandGapsProperty } from "./properties/non-scalar/BandGapsProperty";
 export { default as IsRelaxedProperty } from "./properties/non-scalar/IsRelaxedProperty";
 export { default as PressureProperty } from "./properties/scalar/PressureProperty";
-export { default as ImprintProperty } from "./properties/scalar/ImprintProperty";
-export { default as CoerciveVoltageProperty } from "./properties/scalar/CoerciveVoltageProperty";
-export { default as LoopWidthProperty } from "./properties/scalar/LoopWidthProperty";
-export { default as LoopHeightProperty } from "./properties/scalar/LoopHeightProperty";
-export { default as RemanentResponseProperty } from "./properties/scalar/RemanentResponseProperty";
 export { default as ReactionEnergyBarrierProperty } from "./properties/scalar/ReactionEnergyBarrierProperty";
 export { default as FormationEnergyProperty } from "./properties/scalar/FormationEnergyProperty";
 export { default as SurfaceEnergyProperty } from "./properties/scalar/SurfaceEnergyProperty";

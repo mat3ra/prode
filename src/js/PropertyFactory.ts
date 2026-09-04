@@ -31,20 +31,15 @@ import ReactionEnergyProfileProperty from "./properties/non-scalar/ReactionEnerg
 import WavefunctionAmplitudeProperty from "./properties/non-scalar/WavefunctionAmplitudeProperty";
 import WorkflowProperty from "./properties/non-scalar/WorkflowProperty";
 import TotalEnergyContributionsProperty from "./properties/object/TotalEnergyContributionsProperty";
-import CoerciveVoltageProperty from "./properties/scalar/CoerciveVoltageProperty";
 import DefectFormationEnergyProperty from "./properties/scalar/DefectFormationEnergyProperty";
 import FermiEnergyProperty from "./properties/scalar/FermiEnergyProperty";
 import FormationEnergyProperty from "./properties/scalar/FormationEnergyProperty";
 import HOMOEnergyProperty from "./properties/scalar/HOMOEnergyProperty";
-import ImprintProperty from "./properties/scalar/ImprintProperty";
 import InterfacialEnergyProperty from "./properties/scalar/InterfacialEnergyProperty";
 import IonizationPotentialElementalProperty from "./properties/scalar/IonizationPotentialElementalProperty";
-import LoopHeightProperty from "./properties/scalar/LoopHeightProperty";
-import LoopWidthProperty from "./properties/scalar/LoopWidthProperty";
 import LUMOEnergyProperty from "./properties/scalar/LUMOEnergyProperty";
 import PressureProperty from "./properties/scalar/PressureProperty";
 import ReactionEnergyBarrierProperty from "./properties/scalar/ReactionEnergyBarrierProperty";
-import RemanentResponseProperty from "./properties/scalar/RemanentResponseProperty";
 import SurfaceEnergyProperty from "./properties/scalar/SurfaceEnergyProperty";
 import ThermalCorrectionToEnergyProperty from "./properties/scalar/ThermalCorrectionToEnergyProperty";
 import ThermalCorrectionToEnthalpyProperty from "./properties/scalar/ThermalCorrectionToEnthalpyProperty";
@@ -81,11 +76,6 @@ type PropertyClassMap = {
         | Constructor<ThermalCorrectionToEnergyProperty>
         | Constructor<ThermalCorrectionToEnthalpyProperty>
         | Constructor<ZeroPointEnergyProperty>
-        | Constructor<ImprintProperty>
-        | Constructor<CoerciveVoltageProperty>
-        | Constructor<LoopWidthProperty>
-        | Constructor<LoopHeightProperty>
-        | Constructor<RemanentResponseProperty>
         | Constructor<TotalEnergyContributionsProperty>
         | Constructor<FormationEnergyContributionsProperty>
         | Constructor<AtomicForcesProperty>
@@ -142,11 +132,6 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
     [ThermalCorrectionToEnergyProperty.propertyName]: ThermalCorrectionToEnergyProperty,
     [ThermalCorrectionToEnthalpyProperty.propertyName]: ThermalCorrectionToEnthalpyProperty,
     [ZeroPointEnergyProperty.propertyName]: ZeroPointEnergyProperty,
-    [ImprintProperty.propertyName]: ImprintProperty,
-    [CoerciveVoltageProperty.propertyName]: CoerciveVoltageProperty,
-    [LoopWidthProperty.propertyName]: LoopWidthProperty,
-    [LoopHeightProperty.propertyName]: LoopHeightProperty,
-    [RemanentResponseProperty.propertyName]: RemanentResponseProperty,
     [TotalEnergyContributionsProperty.propertyName]: TotalEnergyContributionsProperty,
     [FormationEnergyContributionsProperty.propertyName]: FormationEnergyContributionsProperty,
     [AtomicForcesProperty.propertyName]: AtomicForcesProperty,
