@@ -53,7 +53,7 @@
         "@babel/eslint-parser": "^7.16.3",
         "@exabyte-io/eslint-config": "2025.5.13-0",
         "@mat3ra/code": "2026.8.18-0",
-        "@mat3ra/esse": "2026.8.18-2",
+        "@mat3ra/esse": "https://github.com/mat3ra/esse/releases/download/wip-5acbbf7/esse.tgz",
         "@mat3ra/made": "2026.8.18-0",
         "@mat3ra/tsconfig": "2024.6.3-0",
         "@types/lodash": "^4.17.20",
