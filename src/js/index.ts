@@ -24,6 +24,12 @@ export { default as PotentialProfileProperty } from "./properties/non-scalar/Pot
 export { default as WavefunctionAmplitudeProperty } from "./properties/non-scalar/WavefunctionAmplitudeProperty";
 export { default as ReactionEnergyProfileProperty } from "./properties/non-scalar/ReactionEnergyProfileProperty";
 export { default as HysteresisLoopProperty } from "./properties/non-scalar/HysteresisLoopProperty";
+export { default as CurrentVoltageCurveProperty } from "./properties/non-scalar/CurrentVoltageCurveProperty";
+export { default as FilmThicknessProperty } from "./properties/scalar/FilmThicknessProperty";
+export { default as ElementalRatioProperty } from "./properties/scalar/ElementalRatioProperty";
+export { default as ArealSurfaceTextureProperty } from "./properties/scalar/ArealSurfaceTextureProperty";
+export { default as GrainSizeProperty } from "./properties/scalar/GrainSizeProperty";
+export { default as GrainCoverageProperty } from "./properties/scalar/GrainCoverageProperty";
 export { protoPropertyHolderMixin } from "./holders/mixins/ProtoPropertyHolderMixin";
 export { propertyHolderMixin } from "./holders/mixins/PropertyHolderMixin";
 export { metaPropertyHolderMixin } from "./holders/mixins/MetaPropertyHolderMixin";

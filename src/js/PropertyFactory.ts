@@ -14,6 +14,7 @@ import BandStructureProperty from "./properties/non-scalar/BandStructureProperty
 import ChargeDensityProfileProperty from "./properties/non-scalar/ChargeDensityProfileProperty";
 import ConvergenceElectronicProperty from "./properties/non-scalar/convergence/ConvergenceElectronicProperty";
 import ConvergenceIonicProperty from "./properties/non-scalar/convergence/ConvergenceIonicProperty";
+import CurrentVoltageCurveProperty from "./properties/non-scalar/CurrentVoltageCurveProperty";
 import DensityOfStatesProperty from "./properties/non-scalar/DensityOfStatesProperty";
 import DielectricTensorProperty from "./properties/non-scalar/DielectricTensorProperty";
 import FileContentProperty from "./properties/non-scalar/FileContentProperty";
@@ -31,9 +32,14 @@ import ReactionEnergyProfileProperty from "./properties/non-scalar/ReactionEnerg
 import WavefunctionAmplitudeProperty from "./properties/non-scalar/WavefunctionAmplitudeProperty";
 import WorkflowProperty from "./properties/non-scalar/WorkflowProperty";
 import TotalEnergyContributionsProperty from "./properties/object/TotalEnergyContributionsProperty";
+import ArealSurfaceTextureProperty from "./properties/scalar/ArealSurfaceTextureProperty";
 import DefectFormationEnergyProperty from "./properties/scalar/DefectFormationEnergyProperty";
+import ElementalRatioProperty from "./properties/scalar/ElementalRatioProperty";
 import FermiEnergyProperty from "./properties/scalar/FermiEnergyProperty";
+import FilmThicknessProperty from "./properties/scalar/FilmThicknessProperty";
 import FormationEnergyProperty from "./properties/scalar/FormationEnergyProperty";
+import GrainCoverageProperty from "./properties/scalar/GrainCoverageProperty";
+import GrainSizeProperty from "./properties/scalar/GrainSizeProperty";
 import HOMOEnergyProperty from "./properties/scalar/HOMOEnergyProperty";
 import InterfacialEnergyProperty from "./properties/scalar/InterfacialEnergyProperty";
 import IonizationPotentialElementalProperty from "./properties/scalar/IonizationPotentialElementalProperty";
@@ -92,6 +98,12 @@ type PropertyClassMap = {
         | Constructor<ReactionEnergyBarrierProperty>
         | Constructor<ReactionEnergyProfileProperty>
         | Constructor<HysteresisLoopProperty>
+        | Constructor<CurrentVoltageCurveProperty>
+        | Constructor<FilmThicknessProperty>
+        | Constructor<ElementalRatioProperty>
+        | Constructor<ArealSurfaceTextureProperty>
+        | Constructor<GrainSizeProperty>
+        | Constructor<GrainCoverageProperty>
         | Constructor<PotentialProfileProperty>
         | Constructor<WavefunctionAmplitudeProperty>
         | Constructor<ChargeDensityProfileProperty>
@@ -148,6 +160,12 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
     [ReactionEnergyBarrierProperty.propertyName]: ReactionEnergyBarrierProperty,
     [ReactionEnergyProfileProperty.propertyName]: ReactionEnergyProfileProperty,
     [HysteresisLoopProperty.propertyName]: HysteresisLoopProperty,
+    [CurrentVoltageCurveProperty.propertyName]: CurrentVoltageCurveProperty,
+    [FilmThicknessProperty.propertyName]: FilmThicknessProperty,
+    [ElementalRatioProperty.propertyName]: ElementalRatioProperty,
+    [ArealSurfaceTextureProperty.propertyName]: ArealSurfaceTextureProperty,
+    [GrainSizeProperty.propertyName]: GrainSizeProperty,
+    [GrainCoverageProperty.propertyName]: GrainCoverageProperty,
     [PotentialProfileProperty.propertyName]: PotentialProfileProperty,
     [WavefunctionAmplitudeProperty.propertyName]: WavefunctionAmplitudeProperty,
     [ChargeDensityProfileProperty.propertyName]: ChargeDensityProfileProperty,

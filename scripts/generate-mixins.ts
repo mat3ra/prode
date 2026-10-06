@@ -61,6 +61,8 @@ const OUTPUT_PATHS = {
         "src/js/generated/ReactionEnergyProfilePropertySchemaMixin.ts",
     "properties-directory/non-scalar/hysteresis-loop":
         "src/js/generated/HysteresisLoopPropertySchemaMixin.ts",
+    "properties-directory/non-scalar/current-voltage-curve":
+        "src/js/generated/CurrentVoltageCurvePropertySchemaMixin.ts",
     "properties-directory/workflow/convergence/ionic":
         "src/js/generated/ConvergenceIonicPropertySchemaMixin.ts",
     "properties-directory/workflow/convergence/electronic":
@@ -77,6 +79,16 @@ const OUTPUT_PATHS = {
         "src/js/generated/IonizationPotentialElementalPropertySchemaMixin.ts",
     "properties-directory/scalar/lumo-energy": "src/js/generated/LUMOEnergyPropertySchemaMixin.ts",
     "properties-directory/scalar/pressure": "src/js/generated/PressurePropertySchemaMixin.ts",
+    "properties-directory/structural/film-thickness":
+        "src/js/generated/FilmThicknessPropertySchemaMixin.ts",
+    "properties-directory/structural/elemental-ratio":
+        "src/js/generated/ElementalRatioPropertySchemaMixin.ts",
+    "properties-directory/structural/areal-surface-texture":
+        "src/js/generated/ArealSurfaceTexturePropertySchemaMixin.ts",
+    "properties-directory/structural/grain-size":
+        "src/js/generated/GrainSizePropertySchemaMixin.ts",
+    "properties-directory/structural/grain-coverage":
+        "src/js/generated/GrainCoveragePropertySchemaMixin.ts",
     "properties-directory/scalar/reaction-energy-barrier":
         "src/js/generated/ReactionEnergyBarrierPropertySchemaMixin.ts",
     "properties-directory/scalar/formation-energy":
