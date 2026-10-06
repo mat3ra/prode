@@ -15,6 +15,11 @@ export enum PropertyType {
 
 export enum PropertyName {
     pressure = "pressure",
+    film_thickness = "film_thickness",
+    elemental_ratio = "elemental_ratio",
+    areal_surface_texture = "areal_surface_texture",
+    grain_size = "grain_size",
+    grain_coverage = "grain_coverage",
     total_force = "total_force",
     total_energy = "total_energy",
     homo_energy = "homo_energy",
@@ -46,6 +51,8 @@ export enum PropertyName {
     magnetic_moments = "magnetic_moments",
     reaction_energy_barrier = "reaction_energy_barrier",
     reaction_energy_profile = "reaction_energy_profile",
+    hysteresis_loop = "hysteresis_loop",
+    current_voltage_curve = "current_voltage_curve",
     potential_profile = "potential_profile",
     wavefunction_amplitude = "wavefunction_amplitude",
     charge_density_profile = "charge_density_profile",
