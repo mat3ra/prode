@@ -9,8 +9,8 @@ describe("SchottkyBarrierHeightProperty", () => {
     it("should create a Schottky barrier height property with correct constructor, propertyType, propertyName, and p/n-type values", () => {
         const config: Omit<SchottkyBarrierHeightPropertySchema, "name"> = {
             units: "eV",
-            pType: 1.046,
-            nType: 0.596,
+            pType: { name: "p_type", value: 1.046 },
+            nType: { name: "n_type", value: 0.596 },
         };
 
         const schottkyBarrierHeightProperty = new SchottkyBarrierHeightProperty(config);
@@ -20,16 +20,16 @@ describe("SchottkyBarrierHeightProperty", () => {
         expect(SchottkyBarrierHeightProperty.propertyName).equal(
             PropertyName.schottky_barrier_height,
         );
-        expect(schottkyBarrierHeightProperty.pType).to.equal(1.046);
-        expect(schottkyBarrierHeightProperty.nType).to.equal(0.596);
+        expect(schottkyBarrierHeightProperty.pType.value).to.equal(1.046);
+        expect(schottkyBarrierHeightProperty.nType.value).to.equal(0.596);
     });
 
     it("should be created by PropertyFactory from its name", () => {
         const property = PropertyFactory.createProperty({
             name: PropertyName.schottky_barrier_height,
             units: "eV",
-            pType: 1.046,
-            nType: 0.596,
+            pType: { name: "p_type", value: 1.046 },
+            nType: { name: "n_type", value: 0.596 },
         } as SchottkyBarrierHeightPropertySchema);
 
         expect(property).to.be.instanceOf(SchottkyBarrierHeightProperty);
