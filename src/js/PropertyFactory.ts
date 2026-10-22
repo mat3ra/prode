@@ -29,6 +29,7 @@ import PotentialProfileProperty from "./properties/non-scalar/PotentialProfilePr
 import ReactionEnergyProfileProperty from "./properties/non-scalar/ReactionEnergyProfileProperty";
 import WavefunctionAmplitudeProperty from "./properties/non-scalar/WavefunctionAmplitudeProperty";
 import WorkflowProperty from "./properties/non-scalar/WorkflowProperty";
+import SchottkyBarrierHeightProperty from "./properties/object/SchottkyBarrierHeightProperty";
 import TotalEnergyContributionsProperty from "./properties/object/TotalEnergyContributionsProperty";
 import DefectFormationEnergyProperty from "./properties/scalar/DefectFormationEnergyProperty";
 import FermiEnergyProperty from "./properties/scalar/FermiEnergyProperty";
@@ -76,6 +77,7 @@ type PropertyClassMap = {
         | Constructor<ThermalCorrectionToEnthalpyProperty>
         | Constructor<ZeroPointEnergyProperty>
         | Constructor<TotalEnergyContributionsProperty>
+        | Constructor<SchottkyBarrierHeightProperty>
         | Constructor<FormationEnergyContributionsProperty>
         | Constructor<AtomicForcesProperty>
         | Constructor<StressTensorProperty>
@@ -131,6 +133,7 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
     [ThermalCorrectionToEnthalpyProperty.propertyName]: ThermalCorrectionToEnthalpyProperty,
     [ZeroPointEnergyProperty.propertyName]: ZeroPointEnergyProperty,
     [TotalEnergyContributionsProperty.propertyName]: TotalEnergyContributionsProperty,
+    [SchottkyBarrierHeightProperty.propertyName]: SchottkyBarrierHeightProperty,
     [FormationEnergyContributionsProperty.propertyName]: FormationEnergyContributionsProperty,
     [AtomicForcesProperty.propertyName]: AtomicForcesProperty,
     [StressTensorProperty.propertyName]: StressTensorProperty,

@@ -66,6 +66,8 @@ const OUTPUT_PATHS = {
     "properties-directory/non-scalar/workflow": "src/js/generated/WorkflowPropertySchemaMixin.ts",
     "properties-directory/non-scalar/total-energy-contributions":
         "src/js/generated/TotalEnergyContributionsPropertySchemaMixin.ts",
+    "properties-directory/non-scalar/schottky-barrier-height":
+        "src/js/generated/SchottkyBarrierHeightPropertySchemaMixin.ts",
     "properties-directory/non-scalar/formation-energy-contributions":
         "src/js/generated/FormationEnergyContributionsPropertySchemaMixin.ts",
     "properties-directory/scalar/fermi-energy":
