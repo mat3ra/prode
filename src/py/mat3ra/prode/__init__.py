@@ -10,6 +10,8 @@ from mat3ra.esse.models.properties_directory.enum_options import (
     MetaPropertyEnum,
 )
 
+from .records import band_gap, energy_contributions, find_property, property_value
+
 
 class AllPropertyEnum(str, Enum):
     """All property names combined from all categories"""
