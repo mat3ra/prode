@@ -1,37 +1,44 @@
-import type { SchottkyBarrierHeightPropertySchema } from "@mat3ra/esse/dist/js/types";
+/* eslint-disable no-unused-expressions */
 import { expect } from "chai";
 
-import SchottkyBarrierHeightProperty from "../../../src/js/properties/object/SchottkyBarrierHeightProperty";
+import SchottkyBarrierHeightNTypeProperty from "../../../src/js/properties/scalar/SchottkyBarrierHeightNTypeProperty";
+import SchottkyBarrierHeightPTypeProperty from "../../../src/js/properties/scalar/SchottkyBarrierHeightPTypeProperty";
 import PropertyFactory from "../../../src/js/PropertyFactory";
 import { PropertyName, PropertyType } from "../../../src/js/settings";
 
+const P_TYPE_VALUE = 1.046;
+const N_TYPE_VALUE = 0.596;
+const UNITS = "eV";
+
+const CASES = [
+    {
+        PropertyClass: SchottkyBarrierHeightPTypeProperty,
+        name: PropertyName.schottky_barrier_height_p,
+        value: P_TYPE_VALUE,
+    },
+    {
+        PropertyClass: SchottkyBarrierHeightNTypeProperty,
+        name: PropertyName.schottky_barrier_height_n,
+        value: N_TYPE_VALUE,
+    },
+];
+
 describe("SchottkyBarrierHeightProperty", () => {
-    it("should create a Schottky barrier height property with correct constructor, propertyType, propertyName, and p/n-type values", () => {
-        const config: Omit<SchottkyBarrierHeightPropertySchema, "name"> = {
-            units: "eV",
-            pType: { name: "p_type", value: 1.046 },
-            nType: { name: "n_type", value: 0.596 },
-        };
+    CASES.forEach(({ PropertyClass, name, value }) => {
+        it(`should create ${name} with correct constructor, propertyType, propertyName, and isRefined`, () => {
+            const property = new PropertyClass({ value, units: UNITS });
 
-        const schottkyBarrierHeightProperty = new SchottkyBarrierHeightProperty(config);
+            expect(property).to.be.instanceOf(PropertyClass);
+            expect(PropertyClass.propertyType).equal(PropertyType.scalar);
+            expect(PropertyClass.propertyName).equal(name);
+            expect(PropertyClass.isRefined).to.be.true;
+            expect(property.value).to.equal(value);
+        });
 
-        expect(schottkyBarrierHeightProperty).to.be.instanceOf(SchottkyBarrierHeightProperty);
-        expect(SchottkyBarrierHeightProperty.propertyType).equal(PropertyType.object);
-        expect(SchottkyBarrierHeightProperty.propertyName).equal(
-            PropertyName.schottky_barrier_height,
-        );
-        expect(schottkyBarrierHeightProperty.pType.value).to.equal(1.046);
-        expect(schottkyBarrierHeightProperty.nType.value).to.equal(0.596);
-    });
+        it(`should be created by PropertyFactory from ${name}`, () => {
+            const property = PropertyFactory.createProperty({ name, value, units: UNITS } as never);
 
-    it("should be created by PropertyFactory from its name", () => {
-        const property = PropertyFactory.createProperty({
-            name: PropertyName.schottky_barrier_height,
-            units: "eV",
-            pType: { name: "p_type", value: 1.046 },
-            nType: { name: "n_type", value: 0.596 },
-        } as SchottkyBarrierHeightPropertySchema);
-
-        expect(property).to.be.instanceOf(SchottkyBarrierHeightProperty);
+            expect(property).to.be.instanceOf(PropertyClass);
+        });
     });
 });
