@@ -94,6 +94,10 @@ const OUTPUT_PATHS = {
     "properties-directory/scalar/total-force": "src/js/generated/TotalForcePropertySchemaMixin.ts",
     "properties-directory/scalar/valence-band-offset":
         "src/js/generated/ValenceBandOffsetPropertySchemaMixin.ts",
+    "properties-directory/scalar/schottky-barrier-height-p":
+        "src/js/generated/SchottkyBarrierHeightPTypePropertySchemaMixin.ts",
+    "properties-directory/scalar/schottky-barrier-height-n":
+        "src/js/generated/SchottkyBarrierHeightNTypePropertySchemaMixin.ts",
     "properties-directory/scalar/zero-point-energy":
         "src/js/generated/ZeroPointEnergyPropertySchemaMixin.ts",
     "properties-directory/structural/atomic-forces":
