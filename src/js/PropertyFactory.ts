@@ -39,6 +39,8 @@ import IonizationPotentialElementalProperty from "./properties/scalar/Ionization
 import LUMOEnergyProperty from "./properties/scalar/LUMOEnergyProperty";
 import PressureProperty from "./properties/scalar/PressureProperty";
 import ReactionEnergyBarrierProperty from "./properties/scalar/ReactionEnergyBarrierProperty";
+import SchottkyBarrierHeightNTypeProperty from "./properties/scalar/SchottkyBarrierHeightNTypeProperty";
+import SchottkyBarrierHeightPTypeProperty from "./properties/scalar/SchottkyBarrierHeightPTypeProperty";
 import SurfaceEnergyProperty from "./properties/scalar/SurfaceEnergyProperty";
 import ThermalCorrectionToEnergyProperty from "./properties/scalar/ThermalCorrectionToEnergyProperty";
 import ThermalCorrectionToEnthalpyProperty from "./properties/scalar/ThermalCorrectionToEnthalpyProperty";
@@ -95,6 +97,8 @@ type PropertyClassMap = {
         | Constructor<ChargeDensityProfileProperty>
         | Constructor<AveragePotentialProfileProperty>
         | Constructor<ValenceBandOffsetProperty>
+        | Constructor<SchottkyBarrierHeightPTypeProperty>
+        | Constructor<SchottkyBarrierHeightNTypeProperty>
         | Constructor<IonizationPotentialElementalProperty>
         | Constructor<FileContentProperty>
         | Constructor<DielectricTensorProperty>
@@ -150,6 +154,8 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
     [ChargeDensityProfileProperty.propertyName]: ChargeDensityProfileProperty,
     [AveragePotentialProfileProperty.propertyName]: AveragePotentialProfileProperty,
     [ValenceBandOffsetProperty.propertyName]: ValenceBandOffsetProperty,
+    [SchottkyBarrierHeightPTypeProperty.propertyName]: SchottkyBarrierHeightPTypeProperty,
+    [SchottkyBarrierHeightNTypeProperty.propertyName]: SchottkyBarrierHeightNTypeProperty,
     [IonizationPotentialElementalProperty.propertyName]: IonizationPotentialElementalProperty,
     [FileContentProperty.propertyName]: FileContentProperty,
     [DielectricTensorProperty.propertyName]: DielectricTensorProperty,
