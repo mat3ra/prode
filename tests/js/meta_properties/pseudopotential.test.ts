@@ -140,13 +140,13 @@ describe("PseudopotentialMetaProperty", () => {
         }).to.throw("Invalid filter value: 123");
     });
 
-    describe("applications reusing other applications' pseudopotentials", () => {
-        const espressoUltrasoft = new Pseudopotential({
+    describe("pseudopotentials matched by the apps entry", () => {
+        const sharedUltrasoft = new Pseudopotential({
             exchangeCorrelation,
             element: "Si",
             hash: "hash3",
             path: "/export/share/pseudo/si/gga/pbe/gbrv/1.0/us/si_pbe_gbrv_1.0.upf",
-            apps: ["espresso"],
+            apps: ["espresso", "q3"],
             source: "exabyte",
             type: "us" as const,
         });
@@ -159,12 +159,12 @@ describe("PseudopotentialMetaProperty", () => {
             source: "exabyte",
             type: "nc" as const,
         });
-        const espressoProjectorAugmentedWave = new Pseudopotential({
+        const sharedProjectorAugmentedWave = new Pseudopotential({
             exchangeCorrelation,
             element: "Si",
             hash: "hash5",
             path: "/export/share/pseudo/si/gga/pbe/dojo-jth/1.1/paw/si_pbe_dojo-jth_1.1.upf",
-            apps: ["espresso"],
+            apps: ["espresso", "q3"],
             source: "exabyte",
             type: "paw" as const,
         });
@@ -177,7 +177,7 @@ describe("PseudopotentialMetaProperty", () => {
             source: "exabyte",
             type: "paw" as const,
         });
-        const q3NativeUltrasoft = new Pseudopotential({
+        const q3Ultrasoft = new Pseudopotential({
             exchangeCorrelation,
             element: "Si",
             hash: "hash7",
@@ -186,69 +186,53 @@ describe("PseudopotentialMetaProperty", () => {
             source: "exabyte",
             type: "us" as const,
         });
-        const q3Pseudos = [
+        const pseudosByApp = [
             vaspProjectorAugmentedWave,
             espressoNormConserving,
-            espressoProjectorAugmentedWave,
-            espressoUltrasoft,
-            q3NativeUltrasoft,
+            sharedProjectorAugmentedWave,
+            sharedUltrasoft,
+            q3Ultrasoft,
         ];
 
-        it("keeps native q3 and espresso pseudopotentials for q3, not vasp", () => {
-            const filtered = Pseudopotential.filterByAppName(q3Pseudos, "q3");
-            expect(filtered).to.have.length(4);
-            expect(filtered.every((pseudo) => !pseudo.apps.includes("vasp"))).to.equal(true);
+        it("keeps pseudopotentials whose apps include q3", () => {
+            const filtered = Pseudopotential.filterByAppName(pseudosByApp, "q3");
+            expect(filtered).to.have.length(3);
+            expect(filtered.every((pseudo) => pseudo.apps.includes("q3"))).to.equal(true);
         });
 
-        it("keeps only its own pseudopotentials for an application without compatible ones", () => {
-            const filtered = Pseudopotential.filterByAppName(q3Pseudos, "espresso");
+        it("keeps pseudopotentials whose apps include espresso", () => {
+            const filtered = Pseudopotential.filterByAppName(pseudosByApp, "espresso");
             expect(filtered).to.have.length(3);
             expect(filtered.every((pseudo) => pseudo.apps.includes("espresso"))).to.equal(true);
         });
 
-        it("lists only ultrasoft espresso and native q3 pseudopotentials under the us subtype", () => {
-            const filtered = Pseudopotential.applyPseudoFilters(q3Pseudos, {
+        it("lists ultrasoft files that name q3 under the us subtype", () => {
+            const filtered = Pseudopotential.applyPseudoFilters(pseudosByApp, {
                 appName: "q3",
                 type: "us",
                 elements: ["Si"],
             });
             expect(filtered).to.have.length(2);
-            expect(filtered.map((pseudo) => pseudo.apps[0]).sort()).to.deep.equal([
-                "espresso",
-                "q3",
-            ]);
+            expect(filtered.every((pseudo) => pseudo.apps.includes("q3"))).to.equal(true);
+            expect(filtered.every((pseudo) => pseudo.type === "us")).to.equal(true);
         });
 
-        it("lists espresso paw UPF files for q3 under the paw subtype, not vasp POTCARs", () => {
-            const filtered = Pseudopotential.applyPseudoFilters(q3Pseudos, {
+        it("lists paw UPF files that name q3, and leaves out vasp POTCARs", () => {
+            const filtered = Pseudopotential.applyPseudoFilters(pseudosByApp, {
                 appName: "q3",
                 type: "paw",
                 elements: ["Si"],
             });
             expect(filtered).to.have.length(1);
-            expect(filtered[0].apps).to.include("espresso");
+            expect(filtered[0].apps).to.include("q3");
             expect(filtered[0].path).to.include(".upf");
         });
 
-        it("lists native q3 pseudopotentials before espresso ones", () => {
-            const sorted = Pseudopotential.sortByPathApplicationSpecific(q3Pseudos, "q3");
-            expect(sorted.map((pseudo) => pseudo.apps[0])).to.deep.equal([
-                "q3",
-                "espresso",
-                "espresso",
-                "espresso",
-                "vasp",
-            ]);
-        });
-
-        it("preserves the preceding order within espresso, making gbrv the default among reused files", () => {
-            const sorted = Pseudopotential.sortByPathApplicationSpecific(
-                Pseudopotential.sortPseudosByPattern(
-                    q3Pseudos.filter((pseudo) => !pseudo.apps.includes("q3")),
-                ),
-                "q3",
+        it("leaves the order unchanged for q3", () => {
+            const sorted = Pseudopotential.sortByPathApplicationSpecific(pseudosByApp, "q3");
+            expect(sorted.map((pseudo) => pseudo.path)).to.deep.equal(
+                pseudosByApp.map((pseudo) => pseudo.path),
             );
-            expect(sorted[0].path).to.include("/gbrv/");
         });
     });
 });
