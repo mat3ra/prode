@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/%40exabyte-io%2Fprode.svg)](https://badge.fury.io/js/%40exabyte-io%2Fprode)
+[![npm version](https://badge.fury.io/js/%40mat3ra%2Fprode.svg)](https://badge.fury.io/js/%40mat3ra%2Fprode)
 [![License: Apache](https://img.shields.io/badge/License-Apache-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 # prode
@@ -11,13 +11,13 @@ PROperty DEfinitions - prode - houses Property entity definitions for use in the
 For usage within a javascript project:
 
 ```bash
-npm install @exabyte-io/prode
+npm install @mat3ra/prode
 ```
 
 For development:
 
 ```bash
-git clone https://github.com/Exabyte-io/prode.git
+git clone https://github.com/mat3ra/prode.git
 ```
 
 
@@ -28,7 +28,7 @@ This repository is an [open-source](LICENSE.md) work-in-progress and we welcome 
 We regularly deploy the latest code containing all accepted contributions online as part of the
 [Mat3ra.com](https://mat3ra.com) platform, so contributors will see their code in action there.
 
-See [ESSE](https://github.com/Exabyte-io/esse) for additional context regarding the data schemas used here.
+See [ESSE](https://github.com/mat3ra/esse) for additional context regarding the data schemas used here.
 
 Useful commands for development:
 
@@ -90,4 +90,3 @@ ecosystem, where `ProDe` houses entity definitions for:
     - `scalar` `non_scalar` `tensor` `object`
   - specific properties are implemented by subclassing `Property`
   - more info at https://docs.mat3ra.com/properties/overview/
-
