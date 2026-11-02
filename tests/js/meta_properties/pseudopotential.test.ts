@@ -139,4 +139,100 @@ describe("PseudopotentialMetaProperty", () => {
             Pseudopotential.applyPseudoFilters(pseudos, { invalidFilter: 123 });
         }).to.throw("Invalid filter value: 123");
     });
+
+    describe("pseudopotentials matched by the apps entry", () => {
+        const sharedUltrasoft = new Pseudopotential({
+            exchangeCorrelation,
+            element: "Si",
+            hash: "hash3",
+            path: "/export/share/pseudo/si/gga/pbe/gbrv/1.0/us/si_pbe_gbrv_1.0.upf",
+            apps: ["espresso", "q3"],
+            source: "exabyte",
+            type: "us" as const,
+        });
+        const espressoNormConserving = new Pseudopotential({
+            exchangeCorrelation,
+            element: "Si",
+            hash: "hash4",
+            path: "/export/share/pseudo/si/gga/pbe/dojo-oncv/0.4/nc/si_pbe_dojo-oncv_0.4.upf",
+            apps: ["espresso"],
+            source: "exabyte",
+            type: "nc" as const,
+        });
+        const sharedProjectorAugmentedWave = new Pseudopotential({
+            exchangeCorrelation,
+            element: "Si",
+            hash: "hash5",
+            path: "/export/share/pseudo/si/gga/pbe/dojo-jth/1.1/paw/si_pbe_dojo-jth_1.1.upf",
+            apps: ["espresso", "q3"],
+            source: "exabyte",
+            type: "paw" as const,
+        });
+        const vaspProjectorAugmentedWave = new Pseudopotential({
+            exchangeCorrelation,
+            element: "Si",
+            hash: "hash6",
+            path: "/export/share/pseudo/si/gga/pbe/vasp/5.2/paw/default/POTCAR",
+            apps: ["vasp"],
+            source: "exabyte",
+            type: "paw" as const,
+        });
+        const q3Ultrasoft = new Pseudopotential({
+            exchangeCorrelation,
+            element: "Si",
+            hash: "hash7",
+            path: "/export/share/pseudo/si/gga/pbe/q3/1.0/us/si_pbe_q3_1.0.upf",
+            apps: ["q3"],
+            source: "exabyte",
+            type: "us" as const,
+        });
+        const pseudosByApp = [
+            vaspProjectorAugmentedWave,
+            espressoNormConserving,
+            sharedProjectorAugmentedWave,
+            sharedUltrasoft,
+            q3Ultrasoft,
+        ];
+
+        it("keeps pseudopotentials whose apps include q3", () => {
+            const filtered = Pseudopotential.filterByAppName(pseudosByApp, "q3");
+            expect(filtered).to.have.length(3);
+            expect(filtered.every((pseudo) => pseudo.apps.includes("q3"))).to.equal(true);
+        });
+
+        it("keeps pseudopotentials whose apps include espresso", () => {
+            const filtered = Pseudopotential.filterByAppName(pseudosByApp, "espresso");
+            expect(filtered).to.have.length(3);
+            expect(filtered.every((pseudo) => pseudo.apps.includes("espresso"))).to.equal(true);
+        });
+
+        it("lists ultrasoft files that name q3 under the us subtype", () => {
+            const filtered = Pseudopotential.applyPseudoFilters(pseudosByApp, {
+                appName: "q3",
+                type: "us",
+                elements: ["Si"],
+            });
+            expect(filtered).to.have.length(2);
+            expect(filtered.every((pseudo) => pseudo.apps.includes("q3"))).to.equal(true);
+            expect(filtered.every((pseudo) => pseudo.type === "us")).to.equal(true);
+        });
+
+        it("lists paw UPF files that name q3, and leaves out vasp POTCARs", () => {
+            const filtered = Pseudopotential.applyPseudoFilters(pseudosByApp, {
+                appName: "q3",
+                type: "paw",
+                elements: ["Si"],
+            });
+            expect(filtered).to.have.length(1);
+            expect(filtered[0].apps).to.include("q3");
+            expect(filtered[0].path).to.include(".upf");
+        });
+
+        it("leaves the order unchanged for q3", () => {
+            const sorted = Pseudopotential.sortByPathApplicationSpecific(pseudosByApp, "q3");
+            expect(sorted.map((pseudo) => pseudo.path)).to.deep.equal(
+                pseudosByApp.map((pseudo) => pseudo.path),
+            );
+        });
+    });
 });
