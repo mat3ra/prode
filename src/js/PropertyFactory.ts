@@ -6,6 +6,7 @@ import type {
 } from "@mat3ra/esse/dist/js/types";
 
 import PseudopotentialProperty from "./meta_properties/PseudopotentialMetaProperty";
+import StartingMagnetizationProperty from "./meta_properties/StartingMagnetizationProperty";
 import type MetaProperty from "./MetaProperty";
 import FormationEnergyContributionsProperty from "./properties/array-of-objects/FormationEnergyContributionsProperty";
 import AveragePotentialProfileProperty from "./properties/non-scalar/AveragePotentialProfileProperty";
@@ -53,6 +54,7 @@ import MagneticMomentsProperty from "./properties/tensor/MagneticMomentsProperty
 import StressTensorProperty from "./properties/tensor/StressTensorProperty";
 import type Property from "./Property";
 import AtomicConstraintsProperty from "./proto_properties/AtomicConstraintsProperty";
+import AtomicLabelsProperty from "./proto_properties/AtomicLabelsProperty";
 import BoundaryConditionsProperty from "./proto_properties/BoundaryConditionsProperty";
 import { PropertyName, PropertyType } from "./settings";
 
@@ -109,13 +111,16 @@ type PropertyClassMap = {
 };
 
 type MetaPropertyClassMap = {
-    [key in MetaPropertyHolderSchema["data"]["name"]]: Constructor<PseudopotentialProperty>;
+    [key in MetaPropertyHolderSchema["data"]["name"]]:
+        | Constructor<PseudopotentialProperty>
+        | Constructor<StartingMagnetizationProperty>;
 };
 
 type ProtoPropertyClassMap = {
     [key in ProtoPropertyHolderSchema["data"]["name"]]:
         | Constructor<BoundaryConditionsProperty>
-        | Constructor<AtomicConstraintsProperty>;
+        | Constructor<AtomicConstraintsProperty>
+        | Constructor<AtomicLabelsProperty>;
 };
 
 const PROPERTY_CLASS_MAP: PropertyClassMap = {
@@ -167,11 +172,13 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
 
 const META_PROPERTY_CLASS_MAP: MetaPropertyClassMap = {
     [PseudopotentialProperty.propertyName]: PseudopotentialProperty,
+    [StartingMagnetizationProperty.propertyName]: StartingMagnetizationProperty,
 };
 
 const PROTO_PROPERTY_CLASS_MAP: ProtoPropertyClassMap = {
     [BoundaryConditionsProperty.propertyName]: BoundaryConditionsProperty,
     [AtomicConstraintsProperty.propertyName]: AtomicConstraintsProperty,
+    [AtomicLabelsProperty.propertyName]: AtomicLabelsProperty,
 };
 
 export default class PropertyFactory {

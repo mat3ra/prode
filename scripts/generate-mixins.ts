@@ -108,6 +108,10 @@ const OUTPUT_PATHS = {
         "src/js/generated/StressTensorPropertySchemaMixin.ts",
     "properties-directory/structural/basis/atomic-constraints-property":
         "src/js/generated/AtomicConstraintsPropertySchemaMixin.ts",
+    "properties-directory/structural/basis/atomic-labels-property":
+        "src/js/generated/AtomicLabelsPropertySchemaMixin.ts",
+    "properties-directory/structural/basis/starting-magnetization-property":
+        "src/js/generated/StartingMagnetizationPropertySchemaMixin.ts",
     "properties-directory/structural/basis/boundary-conditions":
         "src/js/generated/BoundaryConditionsPropertySchemaMixin.ts",
     "properties-directory/non-scalar/wavefunction-amplitude":
