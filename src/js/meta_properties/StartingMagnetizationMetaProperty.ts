@@ -8,9 +8,9 @@ import MetaProperty from "../MetaProperty";
 import { PropertyName, PropertyType } from "../settings";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface StartingMagnetizationProperty extends StartingMagnetizationPropertySchemaMixin {}
+interface StartingMagnetizationMetaProperty extends StartingMagnetizationPropertySchemaMixin {}
 
-class StartingMagnetizationProperty extends MetaProperty<Schema> implements Schema {
+class StartingMagnetizationMetaProperty extends MetaProperty<Schema> implements Schema {
     static readonly propertyName = PropertyName.starting_magnetization;
 
     static readonly propertyType = PropertyType.non_scalar;
@@ -18,10 +18,10 @@ class StartingMagnetizationProperty extends MetaProperty<Schema> implements Sche
     readonly name = PropertyName.starting_magnetization;
 
     constructor(config: Omit<Schema, "name">) {
-        super({ ...config, name: StartingMagnetizationProperty.propertyName });
+        super({ ...config, name: StartingMagnetizationMetaProperty.propertyName });
     }
 }
 
-startingMagnetizationPropertySchemaMixin(StartingMagnetizationProperty.prototype);
+startingMagnetizationPropertySchemaMixin(StartingMagnetizationMetaProperty.prototype);
 
-export default StartingMagnetizationProperty;
+export default StartingMagnetizationMetaProperty;

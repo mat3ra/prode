@@ -6,7 +6,7 @@ import type {
 } from "@mat3ra/esse/dist/js/types";
 
 import PseudopotentialProperty from "./meta_properties/PseudopotentialMetaProperty";
-import StartingMagnetizationProperty from "./meta_properties/StartingMagnetizationProperty";
+import StartingMagnetizationMetaProperty from "./meta_properties/StartingMagnetizationMetaProperty";
 import type MetaProperty from "./MetaProperty";
 import FormationEnergyContributionsProperty from "./properties/array-of-objects/FormationEnergyContributionsProperty";
 import AveragePotentialProfileProperty from "./properties/non-scalar/AveragePotentialProfileProperty";
@@ -113,7 +113,7 @@ type PropertyClassMap = {
 type MetaPropertyClassMap = {
     [key in MetaPropertyHolderSchema["data"]["name"]]:
         | Constructor<PseudopotentialProperty>
-        | Constructor<StartingMagnetizationProperty>;
+        | Constructor<StartingMagnetizationMetaProperty>;
 };
 
 type ProtoPropertyClassMap = {
@@ -172,7 +172,7 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
 
 const META_PROPERTY_CLASS_MAP: MetaPropertyClassMap = {
     [PseudopotentialProperty.propertyName]: PseudopotentialProperty,
-    [StartingMagnetizationProperty.propertyName]: StartingMagnetizationProperty,
+    [StartingMagnetizationMetaProperty.propertyName]: StartingMagnetizationMetaProperty,
 };
 
 const PROTO_PROPERTY_CLASS_MAP: ProtoPropertyClassMap = {
