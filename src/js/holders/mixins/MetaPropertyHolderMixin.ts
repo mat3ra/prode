@@ -6,12 +6,13 @@ import {
     type MetaPropertyHolderSchemaMixin,
     metaPropertyHolderSchemaMixin,
 } from "../../generated/MetaPropertyHolderSchemaMixin";
+import type MetaProperty from "../../MetaProperty";
 import PropertyFactory from "../../PropertyFactory";
 
 export interface MetaPropertySchemaJSON extends MetaPropertyHolderSchema, AnyObject {}
 
 export type MetaPropertyHolderMixin = {
-    property: ReturnType<typeof PropertyFactory.createMetaProperty>;
+    property: MetaProperty;
 } & MetaPropertyHolderSchemaMixin;
 
 export type MetaPropertyInMemoryEntity = InMemoryEntity & MetaPropertyHolderMixin;

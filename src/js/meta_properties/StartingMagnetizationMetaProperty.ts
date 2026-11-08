@@ -1,14 +1,14 @@
 import type { StartingMagnetizationPropertySchema as Schema } from "@mat3ra/esse/dist/js/types";
 
 import {
-    type StartingMagnetizationPropertySchemaMixin,
-    startingMagnetizationPropertySchemaMixin,
-} from "../generated/StartingMagnetizationPropertySchemaMixin";
+    type StartingMagnetizationMetaPropertySchemaMixin,
+    startingMagnetizationMetaPropertySchemaMixin,
+} from "../generated/StartingMagnetizationMetaPropertySchemaMixin";
 import MetaProperty from "../MetaProperty";
 import { PropertyName, PropertyType } from "../settings";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface StartingMagnetizationMetaProperty extends StartingMagnetizationPropertySchemaMixin {}
+interface StartingMagnetizationMetaProperty extends StartingMagnetizationMetaPropertySchemaMixin {}
 
 class StartingMagnetizationMetaProperty extends MetaProperty<Schema> implements Schema {
     static readonly propertyName = PropertyName.starting_magnetization;
@@ -22,6 +22,6 @@ class StartingMagnetizationMetaProperty extends MetaProperty<Schema> implements 
     }
 }
 
-startingMagnetizationPropertySchemaMixin(StartingMagnetizationMetaProperty.prototype);
+startingMagnetizationMetaPropertySchemaMixin(StartingMagnetizationMetaProperty.prototype);
 
 export default StartingMagnetizationMetaProperty;

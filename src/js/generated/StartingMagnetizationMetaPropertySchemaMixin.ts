@@ -4,21 +4,21 @@ import type {
     StartingMagnetizationPropertySchema,
 } from "@mat3ra/esse/dist/js/types";
 
-export type StartingMagnetizationPropertySchemaMixin = Omit<
+export type StartingMagnetizationMetaPropertySchemaMixin = Omit<
     StartingMagnetizationPropertySchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type StartingMagnetizationPropertyInMemoryEntity = InMemoryEntity<
-    BaseInMemoryEntitySchema & StartingMagnetizationPropertySchemaMixin
+export type StartingMagnetizationMetaPropertyInMemoryEntity = InMemoryEntity<
+    BaseInMemoryEntitySchema & StartingMagnetizationMetaPropertySchemaMixin
 >;
 
-export function startingMagnetizationPropertySchemaMixin<T extends InMemoryEntity>(
+export function startingMagnetizationMetaPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
-): asserts item is T & StartingMagnetizationPropertySchemaMixin {
+): asserts item is T & StartingMagnetizationMetaPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity<StartingMagnetizationPropertySchemaMixin> &
-        StartingMagnetizationPropertySchemaMixin = {
+    const properties: InMemoryEntity<StartingMagnetizationMetaPropertySchemaMixin> &
+        StartingMagnetizationMetaPropertySchemaMixin = {
         get name() {
             return this.requiredProp("name");
         },
