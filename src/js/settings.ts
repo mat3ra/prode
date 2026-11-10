@@ -57,7 +57,7 @@ export enum PropertyName {
     schottky_barrier_height_n = "schottky_barrier_height_n",
     ionization_potential = "ionization_potential",
     pseudopotential = "pseudopotential",
-    starting_magnetization = "starting_magnetization",
+    atomic_magnetic_moments = "atomic_magnetic_moments",
     boundary_conditions = "boundary_conditions",
     dielectric_tensor = "dielectric_tensor",
     hubbard_u = "hubbard_u",
