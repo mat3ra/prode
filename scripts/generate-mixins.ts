@@ -111,7 +111,7 @@ const OUTPUT_PATHS = {
     "properties-directory/structural/basis/atomic-labels-property":
         "src/js/generated/AtomicLabelsPropertySchemaMixin.ts",
     "properties-directory/structural/basis/atomic-magnetic-moments-property":
-        "src/js/generated/AtomicMagneticMomentsMetaPropertySchemaMixin.ts",
+        "src/js/generated/AtomicMagneticMomentsPropertySchemaMixin.ts",
     "properties-directory/structural/basis/boundary-conditions":
         "src/js/generated/BoundaryConditionsPropertySchemaMixin.ts",
     "properties-directory/non-scalar/wavefunction-amplitude":

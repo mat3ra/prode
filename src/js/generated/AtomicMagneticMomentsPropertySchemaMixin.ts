@@ -4,21 +4,21 @@ import type {
     BaseInMemoryEntitySchema,
 } from "@mat3ra/esse/dist/js/types";
 
-export type AtomicMagneticMomentsMetaPropertySchemaMixin = Omit<
+export type AtomicMagneticMomentsPropertySchemaMixin = Omit<
     AtomicMagneticMomentsPropertySchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
-export type AtomicMagneticMomentsMetaPropertyInMemoryEntity = InMemoryEntity<
-    BaseInMemoryEntitySchema & AtomicMagneticMomentsMetaPropertySchemaMixin
+export type AtomicMagneticMomentsPropertyInMemoryEntity = InMemoryEntity<
+    BaseInMemoryEntitySchema & AtomicMagneticMomentsPropertySchemaMixin
 >;
 
-export function atomicMagneticMomentsMetaPropertySchemaMixin<T extends InMemoryEntity>(
+export function atomicMagneticMomentsPropertySchemaMixin<T extends InMemoryEntity>(
     item: InMemoryEntity,
-): asserts item is T & AtomicMagneticMomentsMetaPropertySchemaMixin {
+): asserts item is T & AtomicMagneticMomentsPropertySchemaMixin {
     // @ts-expect-error
-    const properties: InMemoryEntity<AtomicMagneticMomentsMetaPropertySchemaMixin> &
-        AtomicMagneticMomentsMetaPropertySchemaMixin = {
+    const properties: InMemoryEntity<AtomicMagneticMomentsPropertySchemaMixin> &
+        AtomicMagneticMomentsPropertySchemaMixin = {
         get name() {
             return this.requiredProp("name");
         },

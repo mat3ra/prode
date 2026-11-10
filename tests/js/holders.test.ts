@@ -1,11 +1,15 @@
 /* eslint-disable no-unused-expressions */
-import type { PropertyHolderSchema } from "@mat3ra/esse/dist/js/types";
+import AtomicLabels from "@mat3ra/esse/dist/js/example/properties_directory/structural/basis/atomic_labels_property.json";
+import AtomicMagneticMoments from "@mat3ra/esse/dist/js/example/properties_directory/structural/basis/atomic_magnetic_moments_property.json";
+import type { PropertyHolderSchema, ProtoPropertyHolderSchema } from "@mat3ra/esse/dist/js/types";
 import { expect } from "chai";
 
 import { PropertyName } from "../../src/js";
 import MetaPropertyHolder from "../../src/js/holders/MetaPropertyHolder";
 import PropertyHolder from "../../src/js/holders/PropertyHolder";
 import ProtoPropertyHolder from "../../src/js/holders/ProtoPropertyHolder";
+import AtomicLabelsProperty from "../../src/js/proto_properties/AtomicLabelsProperty";
+import AtomicMagneticMomentsProperty from "../../src/js/proto_properties/AtomicMagneticMomentsProperty";
 
 describe("Holders", () => {
     it("should test PropertyHolderMixin functions", () => {
@@ -83,6 +87,20 @@ describe("Holders", () => {
 
         expect(protoPropertyHolder).to.be.instanceOf(ProtoPropertyHolder);
         expect(protoPropertyHolder.property).to.exist;
+    });
+
+    [
+        { data: AtomicLabels, PropertyClass: AtomicLabelsProperty },
+        { data: AtomicMagneticMoments, PropertyClass: AtomicMagneticMomentsProperty },
+    ].forEach(({ data, PropertyClass }) => {
+        it(`should create ${data.name} from a proto property holder`, () => {
+            const { property } = new ProtoPropertyHolder({
+                data: data as ProtoPropertyHolderSchema["data"],
+                source: { type: "exabyte", info: { materialId: "proto-123" } },
+            });
+            expect(property).to.be.instanceOf(PropertyClass);
+            expect(property.toJSON()).to.deep.equal(data);
+        });
     });
 
     describe("generic schema wrapper", () => {

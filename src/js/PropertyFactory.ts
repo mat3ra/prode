@@ -5,7 +5,6 @@ import type {
     ProtoPropertyHolderSchema,
 } from "@mat3ra/esse/dist/js/types";
 
-import AtomicMagneticMomentsMetaProperty from "./meta_properties/AtomicMagneticMomentsMetaProperty";
 import PseudopotentialProperty from "./meta_properties/PseudopotentialMetaProperty";
 import type MetaProperty from "./MetaProperty";
 import FormationEnergyContributionsProperty from "./properties/array-of-objects/FormationEnergyContributionsProperty";
@@ -55,7 +54,9 @@ import StressTensorProperty from "./properties/tensor/StressTensorProperty";
 import type Property from "./Property";
 import AtomicConstraintsProperty from "./proto_properties/AtomicConstraintsProperty";
 import AtomicLabelsProperty from "./proto_properties/AtomicLabelsProperty";
+import AtomicMagneticMomentsProperty from "./proto_properties/AtomicMagneticMomentsProperty";
 import BoundaryConditionsProperty from "./proto_properties/BoundaryConditionsProperty";
+import type ProtoProperty from "./ProtoProperty";
 import { PropertyName, PropertyType } from "./settings";
 
 type AnyProperty = PropertyHolderSchema["data"];
@@ -111,16 +112,11 @@ type PropertyClassMap = {
 };
 
 type MetaPropertyClassMap = {
-    [key in MetaPropertyHolderSchema["data"]["name"]]:
-        | Constructor<PseudopotentialProperty>
-        | Constructor<AtomicMagneticMomentsMetaProperty>;
+    [key in MetaPropertyHolderSchema["data"]["name"]]: Constructor<PseudopotentialProperty>;
 };
 
 type ProtoPropertyClassMap = {
-    [key in ProtoPropertyHolderSchema["data"]["name"]]:
-        | Constructor<BoundaryConditionsProperty>
-        | Constructor<AtomicConstraintsProperty>
-        | Constructor<AtomicLabelsProperty>;
+    [key in ProtoPropertyHolderSchema["data"]["name"]]: Constructor<ProtoProperty>;
 };
 
 const PROPERTY_CLASS_MAP: PropertyClassMap = {
@@ -172,13 +168,13 @@ const PROPERTY_CLASS_MAP: PropertyClassMap = {
 
 const META_PROPERTY_CLASS_MAP: MetaPropertyClassMap = {
     [PseudopotentialProperty.propertyName]: PseudopotentialProperty,
-    [AtomicMagneticMomentsMetaProperty.propertyName]: AtomicMagneticMomentsMetaProperty,
 };
 
 const PROTO_PROPERTY_CLASS_MAP: ProtoPropertyClassMap = {
     [BoundaryConditionsProperty.propertyName]: BoundaryConditionsProperty,
     [AtomicConstraintsProperty.propertyName]: AtomicConstraintsProperty,
     [AtomicLabelsProperty.propertyName]: AtomicLabelsProperty,
+    [AtomicMagneticMomentsProperty.propertyName]: AtomicMagneticMomentsProperty,
 };
 
 export default class PropertyFactory {
