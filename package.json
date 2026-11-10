@@ -54,7 +54,7 @@
         "@mat3ra/code": "2026.8.18-0",
         "@mat3ra/eslint-config": "^2026.7.12-0",
         "@mat3ra/esse": "https://github.com/mat3ra/esse/releases/download/wip-5d00ea4/esse.tgz",
-        "@mat3ra/made": "https://github.com/mat3ra/made/releases/download/wip-e7ef69f/made.tgz",
+        "@mat3ra/made": "https://github.com/mat3ra/made/releases/download/wip-d5d8375/made.tgz",
         "@mat3ra/tsconfig": "2024.6.3-0",
         "@types/lodash": "^4.17.20",
         "@typescript-eslint/eslint-plugin": "^5.9.1",
