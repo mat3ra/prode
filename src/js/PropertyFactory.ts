@@ -53,7 +53,10 @@ import MagneticMomentsProperty from "./properties/tensor/MagneticMomentsProperty
 import StressTensorProperty from "./properties/tensor/StressTensorProperty";
 import type Property from "./Property";
 import AtomicConstraintsProperty from "./proto_properties/AtomicConstraintsProperty";
+import AtomicLabelsProperty from "./proto_properties/AtomicLabelsProperty";
+import AtomicMagneticMomentsProperty from "./proto_properties/AtomicMagneticMomentsProperty";
 import BoundaryConditionsProperty from "./proto_properties/BoundaryConditionsProperty";
+import type ProtoProperty from "./ProtoProperty";
 import { PropertyName, PropertyType } from "./settings";
 
 type AnyProperty = PropertyHolderSchema["data"];
@@ -113,9 +116,7 @@ type MetaPropertyClassMap = {
 };
 
 type ProtoPropertyClassMap = {
-    [key in ProtoPropertyHolderSchema["data"]["name"]]:
-        | Constructor<BoundaryConditionsProperty>
-        | Constructor<AtomicConstraintsProperty>;
+    [key in ProtoPropertyHolderSchema["data"]["name"]]: Constructor<ProtoProperty>;
 };
 
 const PROPERTY_CLASS_MAP: PropertyClassMap = {
@@ -172,6 +173,8 @@ const META_PROPERTY_CLASS_MAP: MetaPropertyClassMap = {
 const PROTO_PROPERTY_CLASS_MAP: ProtoPropertyClassMap = {
     [BoundaryConditionsProperty.propertyName]: BoundaryConditionsProperty,
     [AtomicConstraintsProperty.propertyName]: AtomicConstraintsProperty,
+    [AtomicLabelsProperty.propertyName]: AtomicLabelsProperty,
+    [AtomicMagneticMomentsProperty.propertyName]: AtomicMagneticMomentsProperty,
 };
 
 export default class PropertyFactory {
