@@ -34,7 +34,6 @@ export enum PropertyName {
     atomic_forces = "atomic_forces",
     atomic_constraints = "atomic_constraints",
     atomic_labels = "atomic_labels",
-    atomic_magnetic_moments = "atomic_magnetic_moments",
     stress_tensor = "stress_tensor",
     density_of_states = "density_of_states",
     band_structure = "band_structure",

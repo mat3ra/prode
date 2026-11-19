@@ -1,11 +1,8 @@
 import type { InMemoryEntity } from "@mat3ra/code/dist/js/entity";
-import type {
-    AtomicLabelsPropertySchema,
-    BaseInMemoryEntitySchema,
-} from "@mat3ra/esse/dist/js/types";
+import type { AtomicLabelsSchema, BaseInMemoryEntitySchema } from "@mat3ra/esse/dist/js/types";
 
 export type AtomicLabelsPropertySchemaMixin = Omit<
-    AtomicLabelsPropertySchema,
+    AtomicLabelsSchema,
     "_id" | "slug" | "systemName" | "schemaVersion"
 >;
 
@@ -22,13 +19,13 @@ export function atomicLabelsPropertySchemaMixin<T extends InMemoryEntity>(
         get name() {
             return this.requiredProp("name");
         },
-        set name(value: AtomicLabelsPropertySchema["name"]) {
+        set name(value: AtomicLabelsSchema["name"]) {
             this.setProp("name", value);
         },
         get values() {
             return this.requiredProp("values");
         },
-        set values(value: AtomicLabelsPropertySchema["values"]) {
+        set values(value: AtomicLabelsSchema["values"]) {
             this.setProp("values", value);
         },
     };

@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import AtomicLabels from "@mat3ra/esse/dist/js/example/properties_directory/structural/basis/atomic_labels_property.json";
-import AtomicMagneticMoments from "@mat3ra/esse/dist/js/example/properties_directory/structural/basis/atomic_magnetic_moments_property.json";
+import AtomicLabels from "@mat3ra/esse/dist/js/example/properties_directory/structural/basis/atomic_labels.json";
 import type { PropertyHolderSchema, ProtoPropertyHolderSchema } from "@mat3ra/esse/dist/js/types";
 import { expect } from "chai";
 
@@ -9,7 +8,6 @@ import MetaPropertyHolder from "../../src/js/holders/MetaPropertyHolder";
 import PropertyHolder from "../../src/js/holders/PropertyHolder";
 import ProtoPropertyHolder from "../../src/js/holders/ProtoPropertyHolder";
 import AtomicLabelsProperty from "../../src/js/proto_properties/AtomicLabelsProperty";
-import AtomicMagneticMomentsProperty from "../../src/js/proto_properties/AtomicMagneticMomentsProperty";
 
 describe("Holders", () => {
     it("should test PropertyHolderMixin functions", () => {
@@ -89,18 +87,13 @@ describe("Holders", () => {
         expect(protoPropertyHolder.property).to.exist;
     });
 
-    [
-        { data: AtomicLabels, PropertyClass: AtomicLabelsProperty },
-        { data: AtomicMagneticMoments, PropertyClass: AtomicMagneticMomentsProperty },
-    ].forEach(({ data, PropertyClass }) => {
-        it(`should create ${data.name} from a proto property holder`, () => {
-            const { property } = new ProtoPropertyHolder({
-                data: data as ProtoPropertyHolderSchema["data"],
-                source: { type: "exabyte", info: { materialId: "proto-123" } },
-            });
-            expect(property).to.be.instanceOf(PropertyClass);
-            expect(property.toJSON()).to.deep.equal(data);
+    it("should create atomic_labels from a proto property holder", () => {
+        const { property } = new ProtoPropertyHolder({
+            data: AtomicLabels as ProtoPropertyHolderSchema["data"],
+            source: { type: "exabyte", info: { materialId: "proto-123" } },
         });
+        expect(property).to.be.instanceOf(AtomicLabelsProperty);
+        expect(property.toJSON()).to.deep.equal(AtomicLabels);
     });
 
     describe("generic schema wrapper", () => {
