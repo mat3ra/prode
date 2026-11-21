@@ -1,6 +1,6 @@
 {
     "extends": [
-        "@exabyte-io/eslint-config"
+        "@mat3ra/eslint-config"
     ],
     "ignorePatterns": [
         "dist/"
